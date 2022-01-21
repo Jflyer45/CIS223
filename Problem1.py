@@ -1,4 +1,4 @@
-# Writen By: Jeremy Fischer, , and
+# Writen By: Jeremy Fischer, Nate Bursch , and
 
 
 class TwoStack():
