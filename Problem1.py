@@ -17,7 +17,7 @@ class TWOSTACK:
     #methods
     def Push1(self,key):
         #check to see if the list is full
-        if(self.isFull1): #checking to see if the list is full before adding to it
+        if(self.isFull1()== False): #checking to see if the list is full before adding to it
             self.stacks.insert(self.pointer,key)
             self.pointer += 1
         else:
@@ -39,7 +39,7 @@ class TWOSTACK:
 
     def isFull1(self):
         #list one is full if the pointer is  > maxsize
-        if(self.pointer < self.max1):
+        if(self.pointer >= self.max1):
             return True
         else: return False
         
@@ -71,8 +71,9 @@ butt.Push1(2)
 butt.Push1(2)
 butt.Push1(2)
 butt.Push1(2)
-butt.Push1(2)
-butt.Push1(2)
+
+
+
 
 
 
