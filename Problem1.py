@@ -18,7 +18,7 @@ class TWOSTACK:
     def Push1(self,key):
         #check to see if the list is full
         if(self.isFull1()): #checking to see if the list is full before adding to it
-            print("Push 1: Not Allowed")
+            print(f"Push 1: Not Allowed {key}")
         else:
             self.stacks.insert(self.pointer,key)
             self.pointer += 1
@@ -26,26 +26,26 @@ class TWOSTACK:
 
     def Push2(self,key):
         if(self.isFull2()): #checking to see if the list is full before adding to it
-            print("Push 2: Not Allowed")
+            print(f"Push 2: Not Allowed {key}")
         else:
             self.stacks.insert(self.pointer,key)
             #we do not need to change the pointer because value was added to stack two
 
 
     def Pop1(self):
-        print("butthole")
         valueToReturn = self.stacks.pop(self.pointer-1) # -1 becuase the pointer is currently pointing at stack two's first value:
         self.pointer -= 1 #decreasing pointer because we took from stack 1
-        print(valueToReturn)
         return valueToReturn #returns the popped value;
 
-    def Pop1(self):
-        self.stacks.pop()
+    def Pop2(self):
+        valueToReturn = self.stacks.pop(self.pointer) #pointer is already on the top item in the stack
+        #don't need to mess with the pointer becuase it will still be on the top list of the stack
+        return valueToReturn
 
     def Peek1(self):
-        return True
+        return self.stacks[self.pointer-1] # return the valyue that is one under pointer. pointer rests on first value stack 2
     def Peek2(self):
-        return False
+        return self.stacks[self.pointer] #pointer is on value 2
 
     def isFull1(self):
         #list one is full if the pointer is  > maxsize
@@ -82,11 +82,13 @@ butt.Push1(3)
 butt.Push1(4)
 butt.Push1(5) #not allowed
 
-lol = butt.pointer
-x = butt.Pop1()
-lol2 = butt.pointer
 
-butt.Push1(6)
+stack1POP = butt.Pop1() # remove top of stack 4
+
+butt.Push1(12)
+butt.Push1(65) #not allowed
+
+
 
 
 
@@ -105,7 +107,13 @@ butt.Push2(9)
 butt.Push2(10)
 butt.Push2(11)#not allowed
 
+stack2POP = butt.Pop2() #will be ten
 
+butt.Push1(13) #not allowed
+butt.Push2(14)
+
+peek1 = butt.Peek1()
+peek2 = butt.Peek2() 
 
 
 length_ofstack = len(butt.stacks)
