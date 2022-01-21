@@ -33,8 +33,10 @@ class TWOSTACK:
 
 
     def Pop1(self):
+        print("butthole")
         valueToReturn = self.stacks.pop(self.pointer-1) # -1 becuase the pointer is currently pointing at stack two's first value:
         self.pointer -= 1 #decreasing pointer because we took from stack 1
+        print(valueToReturn)
         return valueToReturn #returns the popped value;
 
     def Pop1(self):
@@ -79,6 +81,13 @@ butt.Push1(2)
 butt.Push1(3)
 butt.Push1(4)
 butt.Push1(5) #not allowed
+
+lol = butt.pointer
+x = butt.Pop1()
+lol2 = butt.pointer
+
+butt.Push1(6)
+
 
 
 
