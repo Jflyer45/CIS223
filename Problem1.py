@@ -124,7 +124,7 @@ class QUEUE:
         self.counter = 0 #this allows us to not rely on the stacks pointer
         self.stackClass = TWOSTACK(max/2,max/2)
     def Enqueue(self,key):
-        if(self.isFull()): #check to see if the queue is full
+        if(self.isEmpty()): #check to see if the queue is full
             if(self.isEven()): # if the counter is on an even number we push to the first stack.
                 self.stackClass.Push1(key)
                 self.counter += 1
@@ -135,7 +135,7 @@ class QUEUE:
             print(f"Not allowed to Queue {key}") #if q is full print this statement*it can be whatever
 
     def Dequeue(self,key):
-        if(self.isEmpty()): #check to see if it is empty, there would be nohting to dq
+        if(self.isFull()): #check to see if it is empty, there would be nohting to dq
             if(self.isEven()):
                 self.stackClass.Pop1() #if even just pop the first stack
                 self.counter -= 1       #subtract one from counter because we took one away
@@ -148,16 +148,18 @@ class QUEUE:
 
     def isFull(self):
         if(self.counter+1==self.max): #counter is -1 from max
-            return True
+            return True             
         else: return False
 
     def isEmpty(self):
-        if(self.counter==0):
-            return True
-        else: return False
+        if(self.counter==0): #if counter is 0 then we know that the q is empty
+            return False
+        else: return True
         
-    def isEven(self):
-        if(self.counter % 2 == 0):
+    def isEven(self): #extra method to see if the number given is even. This could be in the driver code
+        
+        #checks to see if the counter is even
+        if(self.counter % 2 == 0): # if the remainder after dividing by 2 is 0 we know the number is even
             return True
         else: 
             return False
