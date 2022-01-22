@@ -69,7 +69,7 @@ class TWOSTACK:
             return True
         else: False
 
-
+#region stillnotworking
 butt = TWOSTACK(5,5)
 maxStack1 = butt.max1
 maxStack2 = butt.max2
@@ -87,18 +87,6 @@ stack1POP = butt.Pop1() # remove top of stack 4
 
 butt.Push1(12)
 butt.Push1(65) #not allowed
-
-
-
-
-
-
-
-
-
-
-
-
 
 butt.Push2(6)
 butt.Push2(7)
@@ -125,4 +113,62 @@ stack2full = butt.isFull2()
 
 print(butt.stacks)
 
+#endregion
+
+#Queeee
+#write a class called queue that uses instand of TWOstack class the class implements
+
+class QUEUE:
+    def __init__(self, max):
+        self.max = max
+        self.counter = 0 #this allows us to not rely on the stacks pointer
+        self.stackClass = TWOSTACK(max/2,max/2)
+    def Enqueue(self,key):
+        if(self.isFull()): #check to see if the queue is full
+            if(self.isEven()): # if the counter is on an even number we push to the first stack.
+                self.stackClass.Push1(key)
+                self.counter += 1
+            else:                           #else ^the pointer is odd^ we push to the second stack.
+                self.stackClass.Push2(key)
+                self.counter += 1 #adding to the q adds to the counter
+        else:
+            print(f"Not allowed to Queue {key}") #if q is full print this statement*it can be whatever
+
+    def Dequeue(self,key):
+        if(self.isEmpty()): #check to see if it is empty, there would be nohting to dq
+            if(self.isEven()):
+                self.stackClass.Pop1() #if even just pop the first stack
+                self.counter -= 1       #subtract one from counter because we took one away
+            else:
+                self.stackClass.Pop2() #else not even, take from stack two
+                self.counter -= 1       # take awy from the q, take away from the counter
+        else:
+            print(f"Not Allowed to Dequeue {key}") #bad statement
+
+
+    def isFull(self):
+        if(self.counter+1==self.max): #counter is -1 from max
+            return True
+        else: return False
+
+    def isEmpty(self):
+        if(self.counter==0):
+            return True
+        else: return False
         
+    def isEven(self):
+        if(self.counter % 2 == 0):
+            return True
+        else: 
+            return False
+
+
+
+fart = QUEUE(10)
+
+fart.Enqueue(5) #1
+fart.Enqueue(6) #2
+fart.Enqueue(7) #3
+fart.Enqueue(8) #4
+
+print(fart.stackClass.stacks)
