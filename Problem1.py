@@ -2,6 +2,7 @@
 
 
 class TwoStack():
+
     def __init__(self, size1, size2):
         # Variables
         self.size1 = size1
@@ -10,9 +11,10 @@ class TwoStack():
         self.head1 = 0
         self.head2 = len(self.array)-1
 
+
     def Push1(self, key):
         # If the final slot is not taken, fill it in with data
-        if(self.array[self.size1-1] is None):
+        if(self.array[self.head1] is None):
             self.array[self.head1] = key
             if(self.head1 != self.size1-1):
                 self.head1 += 1
@@ -20,8 +22,7 @@ class TwoStack():
     def Push2(self, key):
         # If the final slot is not taken, fill it in with data
         # print()
-        if(self.array[len(self.array) - self.size2] is None):
-            print("this happend")
+        if(self.array[self.head2] is None):
             self.array[self.head2] = key
             if(self.head2 != len(self.array) - self.size2):
                 self.head2 -= 1
