@@ -2,7 +2,8 @@
 from Problem1 import TwoStack
 from Problem2 import Queue
 
-myQueue = Queue(6)
+# Queue Testing
+myQueue = Queue(8)
 
 myQueue.Enqueue(1)
 myQueue.Enqueue(2)
@@ -14,44 +15,43 @@ print(myQueue.Dequeue())
 print(myQueue.Dequeue())
 print(myQueue.Dequeue())
 print(myQueue.Dequeue())
-
-
-print("Head" + str(myQueue.head))
-
-myQueue.Enqueue(7)
-myQueue.Enqueue(8)
-myQueue.Enqueue(9)
-myQueue.Enqueue(10)
-
-myQueue.Dequeue()
-myQueue.Enqueue(11)
-myQueue.Dequeue()
+print(myQueue.Dequeue())
+print(myQueue.Dequeue())
+myQueue.Enqueue(1)
+myQueue.Enqueue(2)
+myQueue.Enqueue(3)
 myQueue.Dequeue()
 myQueue.Dequeue()
 
-
-
+print("Head: " + str(myQueue.head))
+print("Tail: " + str(myQueue.tail))
 print(myQueue.myStack.array)
 
+# Smaller Queue Testing
+otherQu = Queue(2)
+otherQu.Enqueue(1)
+otherQu.Enqueue(2)
+otherQu.Dequeue()
 
+print(otherQu.myStack.array)
 
+# TwoStack Testing
+testCase = TwoStack(2, 3)
 
-# testCase = TwoStack(2, 3)
-#
-# testCase.Push1(1)
-# testCase.Push1(2)
-#
-# testCase.Push2(5)
-# testCase.Push2(4)
-# testCase.Push2(4)
-# testCase.Push2(466)
-# testCase.Push2(13241234)
-# print(testCase.head2)
-#
-# print(testCase.array)
-#
-# print(testCase.isFull1())
-# print(testCase.isFull2())
+testCase.Push1(1)
+testCase.Push1(2)
+
+testCase.Push2(3)
+testCase.Push2(4)
+testCase.Push2(5)
+testCase.Push2(466)
+testCase.Push2(13241234)
+print(testCase.head2)
+
+print(testCase.array)
+
+print(testCase.isFull1())
+print(testCase.isFull2())
 
 
 
