@@ -3,14 +3,13 @@ from Problem1 import TwoStack
 from Problem2 import Queue
 
 #Queue Testing
-myQueue = Queue(8)
+myQueue = Queue(4)
 
 myQueue.Enqueue(1)
 myQueue.Enqueue(2)
 myQueue.Enqueue(3)
 myQueue.Enqueue(4)
-myQueue.Enqueue(5)
-myQueue.Enqueue(6)
+
 print(myQueue.Dequeue())
 print(myQueue.Dequeue())
 print(myQueue.Dequeue())
@@ -23,8 +22,7 @@ print(myQueue.Dequeue())
 # myQueue.Dequeue()
 # myQueue.Dequeue()
 #
-print("Head: " + str(myQueue.head))
-print("Tail: " + str(myQueue.tail))
+
 print(myQueue.myStack.array)
 #
 # # Smaller Queue Testing
