@@ -1,0 +1,56 @@
+class TwoStack:
+    def __init__(self, size1, size2):
+        self.size1 = size1
+        self.size2 = size2
+        self.TotalSize = size1 + size2
+        self.My_stack = [None] * self.TotalSize
+        self.tos1 = -1
+        self.tos2 = self.TotalSize
+    
+    def push1(self, key): 
+        if self.tos1 + 1 == self.size1:
+            return False
+        
+        else:
+            self.tos1 += 1
+            self.My_stack[self.tos1] = key
+            return True
+    
+    def push2(self, key):
+        if self.tos2 - 1 == self.size1:
+            return False
+        
+        else:
+            self.tos2 -= 1
+            self.My_stack[self.tos2] = key
+            return True
+    
+    def pop1(self):
+        if self.tos1 != -1:
+            v = self.My_stack[self.tos1]
+            self.My_stack[self.tos1] = None
+            self.tos1 -= 1
+            return v
+        
+        else:
+            return False
+
+    def pop2(self):
+        if self.tos2 != self.TotalSize:
+            v = self.My_stack[self.tos2]
+            self.My_stack[self.tos2] = None
+            self.tos2 += 1
+            return v
+        
+        else:
+            return False
+
+
+hi = TwoStack(1, 3)
+
+hi.push1("Hello")
+hi.push2(8)
+print(hi.pop1())
+print(hi.pop2())
+
+
