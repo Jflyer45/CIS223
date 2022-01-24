@@ -68,7 +68,7 @@ class TwoStack:
         else:
             False
 
-    def isEmpty1(self):
+    def isEmpty2(self):
         if (len(self.stacks) == 0):
             return True
         else:
