@@ -2,7 +2,7 @@
 
 # write a class called two stack: use a list to implement two stacks
 
-class TWOSTACK:
+class TwoStack:
 
     # variables shared by all two stacks
     # none
