@@ -38,9 +38,11 @@ class TwoStack:
         return valueToReturn  # returns the popped value;
 
     def Pop2(self):
-        valueToReturn = self.stacks.pop(self.pointer)  # pointer is already on the top item in the stack
-        # don't need to mess with the pointer becuase it will still be on the top list of the stack
-        return valueToReturn
+        if (not self.isEmpty2()):
+            valueToReturn = self.stacks.pop(self.pointer)  # pointer is already on the top item in the stack
+            # don't need to mess with the pointer becuase it will still be on the top list of the stack
+            return valueToReturn
+        else: return "Stack is Empty"
 
     def Peek1(self):
         return self.stacks[
@@ -63,13 +65,14 @@ class TwoStack:
             return False
 
     def isEmpty1(self):
-        if (len(self.stacks) == 0):
+        
+        if (self.pointer == 0):
             return True
         else:
             False
 
     def isEmpty2(self):
-        if (len(self.stacks) == 0):
+        if (len(self.stacks) == self.pointer):
             return True
         else:
             False

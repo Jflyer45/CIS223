@@ -7,14 +7,14 @@ myStack = TwoStack(3,3)
 myStack.Push1(1)
 myStack.Push1(2)
 myStack.Push1(3)
-myStack.Push1(1)
+myStack.Push1(1)#not allowed
 
 myStack.Push2(4)
 myStack.Push2(5)
 myStack.Push2(6)
-myStack.Push2(1)
+myStack.Push2(1) #not allowed
 
-myStack.Pop2()
+myStack.Pop2() #6 should be gone
 
 print(myStack.stacks)
 print()
@@ -26,6 +26,21 @@ myQueue.Enqueue(2)
 myQueue.Enqueue(3)
 myQueue.Enqueue(4)
 
-myQueue.Dequeue()
-print(myQueue.myStack.stacks)
+
+dqNumber = myQueue.Dequeue()
+
+print(dqNumber)
+
+dqNumber = myQueue.Dequeue()
+
+print(dqNumber)
+dqNumber = myQueue.Dequeue()
+
+print(dqNumber)
+dqNumber = myQueue.Dequeue()
+
+print(dqNumber)
+dqNumber = myQueue.Dequeue()
+
+print(dqNumber)
 

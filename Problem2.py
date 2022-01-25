@@ -30,4 +30,4 @@ class Queue():
     def isEmpty(self):
         return self.myStack.isEmpty1() and self.myStack.isEmpty2()
 
-myStack = TwoStack(2, 2)
+#myStack = TwoStack(2, 2)
