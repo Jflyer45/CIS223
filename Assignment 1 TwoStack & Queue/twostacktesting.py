@@ -1,4 +1,4 @@
-from Problem1 import TwoStack
+from .Problem1 import TwoStack
 # TwoStack Testing
 testCase = TwoStack(2, 3)
 
