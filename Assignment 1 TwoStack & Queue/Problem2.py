@@ -1,6 +1,6 @@
 # Writen By: Jeremy Fischer, , and
 
-
+from .TwoStack import TwoStack
 
 class Queue():
     def __init__(self, size):
@@ -12,14 +12,14 @@ class Queue():
         self.myStack = TwoStack(size, size)
 
     def Enqueue(self, data):
-        self.myStack.Push1(data)
+        self.myStack.push1(data)
 
     def Dequeue(self):
         while not self.myStack.isEmpty1():
-            self.myStack.Push2(self.myStack.Pop1())
-        dataToReturn = self.myStack.Pop2()
+            self.myStack.push2(self.myStack.pop1())
+        dataToReturn = self.myStack.pop2()
         while not self.myStack.isEmpty2():
-            self.myStack.Push1(self.myStack.Pop2())
+            self.myStack.push1(self.myStack.pop2())
         return dataToReturn
 
     # Simply checks if both stacks are full
