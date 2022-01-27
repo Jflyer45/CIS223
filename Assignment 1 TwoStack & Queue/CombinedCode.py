@@ -86,14 +86,16 @@ class TwoStack:
 class Queue():
     def __init__(self, size):
         # Ensures size is not negative, zero, or odd. If so default 2
-        if size % 2 != 0 and size > 0:
+        if size % 2 != 0 or size > 0:
             size = 2
 
         self.size = size
         self.myStack = TwoStack(size, size)
 
+    # Adds numbers to the first stack while it's not full
     def Enqueue(self, data):
-        self.myStack.push1(data)
+        if not self.isFull():
+            self.myStack.push1(data)
 
     def Dequeue(self):
         while not self.myStack.isEmpty1():
