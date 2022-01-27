@@ -1,6 +1,6 @@
 # Writen By: Jeremy Fischer, , and
 
-from Problem1 import TwoStack
+
 
 class Queue():
     def __init__(self, size):
