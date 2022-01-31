@@ -1,87 +1,100 @@
 # This is the file we will turn to txt to turn in
 
 class TwoStack:
-    def __init__(self, size1, size2):
-        self.size1 = size1
-        self.size2 = size2
-        self.TotalSize = size1 + size2
-        self.My_stack = [None] * self.TotalSize
-        self.tos1 = -1
-        self.tos2 = self.TotalSize
+    def __init__(self, size1, size2): # accept two integer numbers to define stack's size
+        self.size1 = int(size1)
+        self.size2 = int(size2)
+        self.TotalSize = size1 + size2 # Define Whole size of the stack
+        self.My_stack = [None] * self.TotalSize # putting placeholder as many times as TotalSize
+        self.tos1 = -1 # The pointer (top of stack) of stack 1; starting the head of the stack
+        self.tos2 = self.TotalSize # The pointer (top of stack) of stack 2; starting from the end of the stack
 
     def push1(self, key):
-        if self.tos1 + 1 == self.size1:
+        # If the stack1 is full, unable to push, return False
+        if self.isFull1() == True:
             return False
 
+        # If the stack isn't full, push the key on the stack1
+        # by moving pointer of stack1 to the first place of the stack
+        # and replacing the placeholder to the key
         else:
             self.tos1 += 1
             self.My_stack[self.tos1] = key
             return True
 
+        # Same as above
     def push2(self, key):
-        if self.tos2 == self.size1:
+        if self.isFull2() == True:
             return False
 
+        # Same as above except for the pointer side
         else:
             self.tos2 -= 1
             self.My_stack[self.tos2] = key
             return True
 
+        
     def pop1(self):
-        if self.tos1 != -1:
-            v = self.My_stack[self.tos1]
-            self.My_stack[self.tos1] = None
-            self.tos1 -= 1
-            return v
-
+        # If the stack1 is empty, unable to pop, return False
+        if self.isEmpty1() == True:
+            return False
+        
         else:
+            val = self.peek1() # If the stack isn't Empty, find the value at the pointer, store it
+            self.My_stack[self.tos1] = None # and replace the key back to a placeholder
+            self.tos1 -= 1 # move the pointer back
+            return val # return val
+
+        # Same as pop1 except for the pointer side
+    def pop2(self):
+        if self.isEmpty1() == True:
             return False
 
-    def pop2(self):
-        if self.tos2 != self.TotalSize:
-            v = self.My_stack[self.tos2]
+        else:
+            val = self.peek2()
             self.My_stack[self.tos2] = None
             self.tos2 += 1
-            return v
+            return val
 
-        else:
-            return False
-
+        # Check the stack is full or not
     def isFull1(self):
-        if self.tos1 >= self.size1 - 1:
+        if self.tos1 >= self.size1 - 1: # if the pointer is index at the size of the stack 1, indicates the stack is full
             return True
         else:
             return False
 
     def isFull2(self):
-        if self.tos2 <= self.size1:
+        if self.tos2 <= self.size1: # if the pointer index is moving to the end of the stack 1, indicates the stack is full.
             return True
         else:
             return False
 
+        # Check the stack is Empty or not
     def isEmpty1(self):
-        if self.tos1 == -1:
+        if self.tos1 == -1: # The pointer index is moving down until at out of the stack size as popping or at default, indicates the stack is empty
             return True
         else:
             return False
 
     def isEmpty2(self):
-        if self.tos2 == self.TotalSize:
+        if self.tos2 == self.TotalSize: # The pointer index is moving up until at out of the stack size as popping at default, indicates the stack is empty
             return True
         else:
             return False
 
+        # Pick up the last pushed val
     def peek1(self):
-        if self.isEmpty1() == True:
+        if self.isEmpty1() == True: # Run when the stack is Empty
             return "Stack1 is Empty. Unable to peek"
         else:
-            return self.My_stack[self.tos1]
+            return self.My_stack[self.tos1] # Return the value where the pointer is at now
 
     def peek2(self):
         if self.isEmpty2() == True:
             return "Stack2 is Empty. Unable to peek"
         else:
             return self.My_stack[self.tos2]
+
 
 class Queue():
     def __init__(self, size):
