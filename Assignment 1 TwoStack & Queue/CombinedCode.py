@@ -1,13 +1,13 @@
 # This is the file we will turn to txt to turn in
 
 class TwoStack:
-    def __init__(self, size1, size2): # accept two integer numbers to define stack's size
+    def __init__(self, size1, size2):           # accept two integer numbers to define stack's size
         self.size1 = int(size1)
         self.size2 = int(size2)
-        self.TotalSize = size1 + size2 # Define Whole size of the stack
+        self.TotalSize = size1 + size2          # Define Whole size of the stack
         self.My_stack = [None] * self.TotalSize # putting placeholder as many times as TotalSize
-        self.tos1 = -1 # The pointer (top of stack) of stack 1; starting the head of the stack
-        self.tos2 = self.TotalSize # The pointer (top of stack) of stack 2; starting from the end of the stack
+        self.tos1 = -1                          # The pointer (top of stack) of stack 1; starting the head of the stack
+        self.tos2 = self.TotalSize              # The pointer (top of stack) of stack 2; starting from the end of the stack
 
     def push1(self, key):
         # If the stack1 is full, unable to push, return False
@@ -110,6 +110,7 @@ class Queue():
         if not self.isFull():
             self.myStack.push1(data)
 
+    # Empty the stack1 to the stack2 and pops1. Then pops everything back to stack1
     def Dequeue(self):
         while not self.myStack.isEmpty1():
             self.myStack.push2(self.myStack.pop1())
