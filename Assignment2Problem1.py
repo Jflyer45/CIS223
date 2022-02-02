@@ -19,20 +19,17 @@ class LinkedList(object):
         # TODO validate ranges, make sure x < y, x > 0, ensure y < length+
         print(x)
 
-    # TODO
+    # Jeremy Fischer's Part
     def alternateListJoin(self, q):
-        if self.head is None:
-            return q
-        if q.head is None:
-            return self.head
-
+        # Set up a temp linkedList to then later replace self.head
         listJoin = LinkedList()
+        # While either lists are not at the end alternate adding to listJoin
         while self.head is not None or q.head is not None:
             listJoin.insert_at_head(self.head.data)
             self.head = self.head.next
             listJoin.insert_at_head(q.head.data)
             q.head = q.head.next
-
+        # Once either head is None, add the remaining data from the list that head is not none.
         if q.head is None:
             while self.head is not None:
                 listJoin.insert_at_head(self.head.data)
@@ -42,6 +39,7 @@ class LinkedList(object):
                 listJoin.insert_at_head(q.head.data)
                 q.head = q.head.next
 
+        # Finally replace the original list with the new one
         self.head = listJoin.head
 
     # Function to print linked list
