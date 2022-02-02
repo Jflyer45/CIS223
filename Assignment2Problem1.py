@@ -21,7 +21,28 @@ class LinkedList(object):
 
     # TODO
     def alternateListJoin(self, q):
-        print(q)
+        if self.head is None:
+            return q
+        if q.head is None:
+            return self.head
+
+        listJoin = LinkedList()
+        while self.head is not None or q.head is not None:
+            listJoin.insert_at_head(self.head.data)
+            self.head = self.head.next
+            listJoin.insert_at_head(q.head.data)
+            q.head = q.head.next
+
+        if q.head is None:
+            while self.head is not None:
+                listJoin.insert_at_head(self.head.data)
+                self.head = self.head.next
+        else:
+            while q.head is not None:
+                listJoin.insert_at_head(q.head.data)
+                q.head = q.head.next
+
+        self.head = listJoin.head
 
     # Function to print linked list
     def printList(self):
