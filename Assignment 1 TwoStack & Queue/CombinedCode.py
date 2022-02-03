@@ -99,7 +99,7 @@ class TwoStack:
 class Queue():
     def __init__(self, size):
         # Ensures size is not negative, zero, or odd. If so default 2
-        if size % 2 != 0 or size > 0:
+        if size % 2 != 0 or size < 0:
             size = 2
 
         self.size = size
