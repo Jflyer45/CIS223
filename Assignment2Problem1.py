@@ -16,8 +16,34 @@ class LinkedList(object):
 
     # TODO
     def printRagnge(self, x, y):
-        # TODO validate ranges, make sure x < y, x > 0, ensure y < length+
-        print(x)
+        # We need to make a copy to not mess with the other one
+        temp = self.head
+
+        # Data verification
+        if x > y or x <= 0:
+            print("Invalid Range")
+        else:
+            # Input is valid
+            counter = 1
+            while True:
+                if counter == x:
+                    print(temp.data)
+                    temp = temp.next
+                    counter += 1
+                    break
+                else:
+                    temp = temp.next
+                    counter += 1
+
+            if x != y:
+                while temp is not None:
+                    if counter == y:
+                        print(temp.data)
+                        break
+                    else:
+                        print(temp.data)
+                        counter += 1
+                        temp = temp.next
 
     # Jeremy Fischer's Part
     def alternateListJoin(self, q):
