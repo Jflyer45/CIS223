@@ -19,5 +19,5 @@ myList.printList()
 print()
 myList.printRagnge(0,100)
 
-print("Now printing the leist")
+print("Now printing the list")
 myList.printList()
