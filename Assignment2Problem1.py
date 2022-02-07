@@ -19,14 +19,13 @@ class LinkedList(object):
     def printRange(self, x, y):
         # We need to make a copy to not mess with the other one
         temp = self.head
-
         # Data verification
-        if x > y or x <= 0:
-            print("Invalid range, x must be less than y and be greater than 0.")
-        elif not isinstance(x, int) or not isinstance(y, int):
-            print("Must enter whole numbers and only integers.")
+        if not isinstance(x, int) or not isinstance(y, int):
+            print("Must enter whole numbers and only integers.\n")
+        elif x > y or x <= 0:
+            print("Invalid range, x must be less than y and be greater than 0.\n")
         elif self.head is None:
-            print("The Linked List is empty.")
+            print("The linked list is empty.\n")
         # Input is valid
         else:
             # Iterates through the linked list until it gets to the correct index

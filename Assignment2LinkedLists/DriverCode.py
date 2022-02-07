@@ -23,8 +23,22 @@ print("=== List1 But Joined ===")
 myList.printList()
 print()
 
+print("=== Testing printRange() ===")
+print("Printing the range 1-2 of a empty list")
+myOtherList = LinkedList()
+myOtherList.printRange(1, 2)
+
+print("Printing the ranges -1-5 of List1")
+myList.printRange(-1, 5)
+
+print("Printing the ranges .23-5 of List1")
+myList.printRange(.22, 5)
+
+print("Printing the ranges a-5 of List1")
+myList.printRange("a", 5)
+
 print("Printing the ranges 2-5 of List1")
-myList.printRange(2,5)
+myList.printRange(2, 5)
 
 
 print("=== List1 ===")
