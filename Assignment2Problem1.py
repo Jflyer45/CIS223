@@ -51,20 +51,24 @@ class LinkedList(object):
 
     # Jeremy Fischer's Part
     def alternateListJoin(self, q):
-        # Set up a temp linkedList to then later replace self.head
-        listJoin = LinkedList()
-        # While either lists are not at the end alternate adding to listJoin
-        while self.head is not None or q.head is not None:
-            listJoin.insert_at_head(self.head.data)
-            self.head = self.head.next
-            listJoin.insert_at_head(q.head.data)
-            q.head = q.head.next
+        p_curr = self.head
+        q_curr = q.head
 
-        while self.head is not None:
-            listJoin.insert_at_head(self.head.data)
-            self.head = self.head.next
+        # swap their positions until one finishes off
+        while p_curr != None and q_curr != None:
+            # Save next pointers
+            p_next = p_curr.next
+            q_next = q_curr.next
 
-        self.head = listJoin.head
+            # make q_curr as next of p_curr
+            q_curr.next = p_next  # change next pointer of q_curr
+            p_curr.next = q_curr  # change next pointer of p_curr
+
+            # update current pointers for next iteration
+            p_curr = p_next
+            q_curr = q_next
+            q.head = q_curr
+
 
     # Function to print linked list
     def printList(self):
@@ -72,4 +76,4 @@ class LinkedList(object):
         while temp != None:
             print(str(temp.data))
             temp = temp.next
-        print(" ")
+        # print(" ")
