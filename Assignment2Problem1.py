@@ -20,6 +20,9 @@ class LinkedList(object):
         # We need to make a copy to not mess with the other one
         temp = self.head
 
+        if self.head is None:
+            print("No Item in range")
+
         # Data verification
         if x > y or x <= 0:
             print("Invalid Range")
@@ -56,17 +59,11 @@ class LinkedList(object):
             self.head = self.head.next
             listJoin.insert_at_head(q.head.data)
             q.head = q.head.next
-        # Once either head is None, add the remaining data from the list that head is not none.
-        if q.head is None:
-            while self.head is not None:
-                listJoin.insert_at_head(self.head.data)
-                self.head = self.head.next
-        else:
-            while q.head is not None:
-                listJoin.insert_at_head(q.head.data)
-                q.head = q.head.next
 
-        # Finally replace the original list with the new one
+        while self.head is not None:
+            listJoin.insert_at_head(self.head.data)
+            self.head = self.head.next
+
         self.head = listJoin.head
 
     # Function to print linked list

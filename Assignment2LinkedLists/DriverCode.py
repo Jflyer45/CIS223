@@ -17,7 +17,7 @@ myList2.insert_at_head(6)
 myList.alternateListJoin(myList2)
 myList.printList()
 print()
-myList.printRagnge(0,100)
+myList.printRange(0,100)
 
 print("Now printing the list")
 myList.printList()
