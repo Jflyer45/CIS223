@@ -20,14 +20,15 @@ class LinkedList(object):
         # We need to make a copy to not mess with the other one
         temp = self.head
 
-        if self.head is None:
-            print("No Item in range")
-
         # Data verification
         if x > y or x <= 0:
-            print("Invalid Range")
+            print("Invalid range, x must be less than y and be greater than 0.")
+        elif not isinstance(x, int) or not isinstance(y, int):
+            print("Must enter whole numbers and only integers.")
+        elif self.head is None:
+            print("The Linked List is empty.")
+        # Input is valid
         else:
-            # Input is valid
             # Iterates through the linked list until it gets to the correct index
             counter = 1
             while True:
