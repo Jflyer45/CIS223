@@ -15,7 +15,7 @@ class LinkedList(object):
         self.head = new_node
 
     # TODO
-    def printRagnge(self, x, y):
+    def printRange(self, x, y):
         # We need to make a copy to not mess with the other one
         temp = self.head
 
