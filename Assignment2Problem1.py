@@ -54,23 +54,23 @@ class LinkedList(object):
 
     # Jeremy Fischer's Part
     def alternateListJoin(self, q):
-        p_curr = self.head
-        q_curr = q.head
+        selfHeadCopy = self.head
+        qHeadCopy = q.head
 
         # swap their positions until one finishes off
-        while p_curr != None and q_curr != None:
+        while selfHeadCopy != None and qHeadCopy != None:
             # Save next pointers
-            p_next = p_curr.next
-            q_next = q_curr.next
+            selfNext = selfHeadCopy.next
+            qNext = qHeadCopy.next
 
             # make q_curr as next of p_curr
-            q_curr.next = p_next  # change next pointer of q_curr
-            p_curr.next = q_curr  # change next pointer of p_curr
+            qHeadCopy.next = selfNext  # change next pointer of q_curr
+            selfHeadCopy.next = qHeadCopy  # change next pointer of p_curr
 
             # update current pointers for next iteration
-            p_curr = p_next
-            q_curr = q_next
-            q.head = q_curr
+            selfHeadCopy = selfNext
+            qHeadCopy = qNext
+            q.head = qHeadCopy
 
 
     # Function to print linked list
