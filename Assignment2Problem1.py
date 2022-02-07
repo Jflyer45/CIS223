@@ -57,7 +57,9 @@ class LinkedList(object):
         selfHeadCopy = self.head
         qHeadCopy = q.head
 
-        # swap their positions until one finishes off
+        # If q head is None, then it becomes None and the rest of self is already there
+        # If self head is None first, then stop and leave q to be whatever hasn't been annexed
+        # If both are none, then they are balanced in length and is complete.
         while selfHeadCopy != None and qHeadCopy != None:
             # Save next pointers
             selfNext = selfHeadCopy.next
@@ -70,6 +72,8 @@ class LinkedList(object):
             # update current pointers for next iteration
             selfHeadCopy = selfNext
             qHeadCopy = qNext
+
+            # We must also update q's head to be whatever the copy is now, as it is decreasing in size
             q.head = qHeadCopy
 
 
