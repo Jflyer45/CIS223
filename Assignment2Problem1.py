@@ -61,16 +61,16 @@ class LinkedList(object):
         # If q head is None, then it becomes None and the rest of self is already there
         # If self head is None first, then stop and leave q to be whatever hasn't been annexed
         # If both are none, then they are balanced in length and is complete.
-        while selfHeadCopy != None and qHeadCopy != None:
-            # Save next pointers
+        while selfHeadCopy is not None and qHeadCopy is not None:
+            # Saves next pointers, else they would be lost
             selfNext = selfHeadCopy.next
             qNext = qHeadCopy.next
 
-            # make q_curr as next of p_curr
-            qHeadCopy.next = selfNext  # change next pointer of q_curr
-            selfHeadCopy.next = qHeadCopy  # change next pointer of p_curr
+            # Swaps the pointers of selfHead and qHead
+            selfHeadCopy.next = qHeadCopy
+            qHeadCopy.next = selfNext
 
-            # update current pointers for next iteration
+            # Traverse both the linked lists by one
             selfHeadCopy = selfNext
             qHeadCopy = qNext
 
