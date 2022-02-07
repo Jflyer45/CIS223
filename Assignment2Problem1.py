@@ -1,3 +1,4 @@
+# Hello Sungjae
 class LinkedList(object):
     def __init__(self):
         # head of the list
