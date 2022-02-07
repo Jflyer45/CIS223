@@ -28,6 +28,7 @@ class LinkedList(object):
             print("Invalid Range")
         else:
             # Input is valid
+            # Iterates through the linked list until it gets to the correct index
             counter = 1
             while True:
                 if counter == x:
@@ -39,6 +40,8 @@ class LinkedList(object):
                     temp = temp.next
                     counter += 1
 
+            # Then continues to prints each node until it reaches y or null
+            # Checks to make sure if the range it not itself
             if x != y:
                 while temp is not None:
                     if counter == y:
