@@ -15,7 +15,7 @@ class LinkedList(object):
         new_node.next = self.head
         self.head = new_node
 
-    # TODO
+    # Jeremy Fischer's Part
     def printRange(self, x, y):
         # We need to make a copy to not mess with the other one
         temp = self.head
@@ -52,7 +52,6 @@ class LinkedList(object):
                         counter += 1
                         temp = temp.next
 
-    # Jeremy Fischer's Part
     def alternateListJoin(self, q):
         selfHeadCopy = self.head
         qHeadCopy = q.head
