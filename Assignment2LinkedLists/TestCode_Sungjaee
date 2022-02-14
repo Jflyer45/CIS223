@@ -1,0 +1,53 @@
+from Assignment2Problem1 import LinkedList
+
+TestList = LinkedList()
+
+print("\n Testing pring from the empty list")
+TestList.printRange(1,5)
+
+
+print("Testing Normal Case \n=========================")
+TestList.insert_at_head(101)
+TestList.insert_at_head(201)
+TestList.insert_at_head(301)
+TestList.insert_at_head(401)
+
+
+print("Print Range 1 - 3")
+TestList.printRange(1,3)
+
+print("\n")
+TestList.insert_at_head(501)
+TestList.printRange(1,3)
+
+print("\n Printing Range Test")
+print('===============')
+print('Having same range 2,2')
+TestList.printRange(2,2)
+
+print('\nhaving reversed ragne 3,1')
+TestList.printRange(3,1)
+
+print("\nPrinting range over size of the list")
+TestList.printRange(1,30)
+
+print('\nHaving Decimal number in range')
+TestList.printRange(1,2.5)
+
+print('\nHaving Negative number in ragne')
+TestList.printRange(1, -5)
+
+
+# print("\nPrinting Range starting from over the size of the list")
+# TestList.printRange(30,50) # Error Occurred: AttributeError at temp=temp.next
+
+
+print('\n Adding large amount of item into a list ')
+for i in range(1000):
+    TestList.insert_at_head(i)
+
+TestList.printRange(1, 2000)
+
+
+
+
