@@ -78,6 +78,8 @@ class LinkedList(object):
 
     # Function to print linked list
     def printList(self):
+        if self.head == None:
+            print("The linked list is empty.\n")
         temp = self.head
         while temp != None:
             print(str(temp.data))
