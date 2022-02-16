@@ -64,54 +64,7 @@ def showList():
     print('printing List Q')
     TestingQ.printList()
 
-# def initializationP():
-#     print('... initializing ...')
-#     # Initialization for testing
-#     TestingP = LinkedList()
-#     TestingQ = LinkedList()
-
-#     print('inputting nodes into lists...')
-#     TestingP.insert_at_head(11)
-#     TestingP.insert_at_head(9)
-#     TestingP.insert_at_head(7)
-#     TestingP.insert_at_head(5)
-#     TestingP.insert_at_head(3)
-#     TestingP.insert_at_head(1)            
-
-#     TestingQ.insert_at_head(12)
-#     TestingQ.insert_at_head(10)
-#     TestingQ.insert_at_head(8)
-#     TestingQ.insert_at_head(6)
-#     TestingQ.insert_at_head(4)
-#     TestingQ.insert_at_head(2)
-
-#     return TestingP
-
-# def initializationQ():
-#     print('... initializing ...')
-#     # Initialization for testing
-#     TestingP = LinkedList()
-#     TestingQ = LinkedList()
-
-#     print('inputting nodes into lists...')
-
-#     TestingP.insert_at_head(11)
-#     TestingP.insert_at_head(9)
-#     TestingP.insert_at_head(7)
-#     TestingP.insert_at_head(5)
-#     TestingP.insert_at_head(3)
-#     TestingP.insert_at_head(1)            
-
-#     TestingQ.insert_at_head(12)
-#     TestingQ.insert_at_head(10)
-#     TestingQ.insert_at_head(8)
-#     TestingQ.insert_at_head(6)
-#     TestingQ.insert_at_head(4)
-#     TestingQ.insert_at_head(2)
-
-#     return TestingQ
-
-# ========================
+#========================
 
 
 print('\n\n <<All process merging Q into P>>')
