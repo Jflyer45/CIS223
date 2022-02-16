@@ -136,93 +136,106 @@ LargeList.printRange(1, t)
 
 
 print('... End of LinkedList Class Testing ...')
+
+
 #Alternate List Testing
 print('====================')
 print('Alternate List Testing...')
 
+# Defining Function
 def showList():
     print('printing List P')
     TestingP.printList()
     print('printing List Q')
     TestingQ.printList()
 
-def initializationP():
-    print('... initializing ...')
-    # Initialization for testing
-    TestingP = LinkedList()
-    TestingQ = LinkedList()
+#========================
 
-    print('inputting nodes into lists...')
-    TestingP.insert_at_head(1)
-    TestingP.insert_at_head(3)
-    TestingP.insert_at_head(5)
-    TestingP.insert_at_head(7)
-    TestingP.insert_at_head(9)
-    TestingP.insert_at_head(11)
-
-    TestingQ.insert_at_head(2)
-    TestingQ.insert_at_head(4)
-    TestingQ.insert_at_head(6)
-    TestingQ.insert_at_head(8)
-    TestingQ.insert_at_head(10)
-    TestingQ.insert_at_head(12)
-
-    return TestingP
-
-def initializationQ():
-    print('... initializing ...')
-    # Initialization for testing
-    TestingP = LinkedList()
-    TestingQ = LinkedList()
-
-    print('inputting nodes into lists...')
-    TestingP.insert_at_head(1)
-    TestingP.insert_at_head(3)
-    TestingP.insert_at_head(5)
-    TestingP.insert_at_head(7)
-    TestingP.insert_at_head(9)
-    TestingP.insert_at_head(11)
-
-    TestingQ.insert_at_head(2)
-    TestingQ.insert_at_head(4)
-    TestingQ.insert_at_head(6)
-    TestingQ.insert_at_head(8)
-    TestingQ.insert_at_head(10)
-    TestingQ.insert_at_head(12)
-
-    return TestingQ
-
-
-TestingP = initializationP()
-TestingQ = initializationQ()
-showList()
 
 print('\n\n <<All process merging Q into P>>')
 print('\n *Alternating lists with same size')
-TestingQ.alternateListJoin(TestingP)
+print('... initializing ...')
+    # Initialization for testing
+TestingP = LinkedList()
+TestingQ = LinkedList()
+
+print('inputting nodes into lists...')
+
+TestingP.insert_at_head(11)
+TestingP.insert_at_head(9)
+TestingP.insert_at_head(7)
+TestingP.insert_at_head(5)
+TestingP.insert_at_head(3)
+TestingP.insert_at_head(1)
+
+TestingQ.insert_at_head(12)
+TestingQ.insert_at_head(10)
+TestingQ.insert_at_head(8)
+TestingQ.insert_at_head(6)
+TestingQ.insert_at_head(4)
+TestingQ.insert_at_head(2)
+showList()
+
+print('\n AltJoin When Both have the same size')
+TestingP.alternateListJoin(TestingQ)
 showList()
 
 print('\n *Alternating lists with different size')
-TestingP = initializationP()
-TestingQ = initializationQ()
 
 print('\n\t1. Size of P > Size of Q')
-TestingP.insert_at_head(13)
-TestingP.insert_at_head(15)
-TestingP.insert_at_head(17)
+print('... initializing ...')
 
+    # Initialization for testing
+TestingP = LinkedList()
+TestingQ = LinkedList()
+
+print('inputting nodes into lists...')
+
+TestingP.insert_at_head(15)
+TestingP.insert_at_head(13)
+TestingP.insert_at_head(11)
+TestingP.insert_at_head(9)
+TestingP.insert_at_head(7)
+TestingP.insert_at_head(5)
+TestingP.insert_at_head(3)
+TestingP.insert_at_head(1)
+
+TestingQ.insert_at_head(12)
+TestingQ.insert_at_head(10)
+TestingQ.insert_at_head(8)
+TestingQ.insert_at_head(6)
+TestingQ.insert_at_head(4)
+TestingQ.insert_at_head(2)
 showList()
 
-print('\nExecute AlternateListJoin\n\n')
-TestingQ.alternateListJoin(TestingP)
+print('\nExecute AlternateListJoin...\n\n')
+TestingP.alternateListJoin(TestingQ)
 showList()
 
 print('\n\t2. Size of P < Size of Q')
-TestingP = initializationP()
-TestingQ = initializationQ()
-TestingQ.insert_at_head(14)
+print('... initializing ...')
+    # Initialization for testing
+TestingP = LinkedList()
+TestingQ = LinkedList()
+
+print('inputting nodes into lists...')
+
+TestingP.insert_at_head(11)
+TestingP.insert_at_head(9)
+TestingP.insert_at_head(7)
+TestingP.insert_at_head(5)
+TestingP.insert_at_head(3)
+TestingP.insert_at_head(1)
+
 TestingQ.insert_at_head(16)
-TestingQ.insert_at_head(18)
+TestingQ.insert_at_head(14)
+TestingQ.insert_at_head(12)
+TestingQ.insert_at_head(10)
+TestingQ.insert_at_head(8)
+TestingQ.insert_at_head(6)
+TestingQ.insert_at_head(4)
+TestingQ.insert_at_head(2)
+showList()
 
 print('\nExecute AlternateListJoin\n\n')
 TestingP.alternateListJoin(TestingQ)
