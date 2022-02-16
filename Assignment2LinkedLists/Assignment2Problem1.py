@@ -1,4 +1,7 @@
 # Hello Sungjae
+from ast import For
+from itertools import count
+
 class LinkedList(object):
     def __init__(self):
         # head of the list
@@ -52,30 +55,30 @@ class LinkedList(object):
                         counter += 1
                         temp = temp.next
 
-    def alternateListJoin(self, q):
-        selfHeadCopy = self.head
-        qHeadCopy = q.head
+    #Nate Bursch's part
+    def alternateListJoin(self,listToMerge):
+        headOriginalCopy = self.head
+        headListToMergeCopy = listToMerge.head
 
-        # If q head is None, then it becomes None and the rest of self is already there
-        # If self head is None first, then stop and leave q to be whatever hasn't been annexed
-        # If both are none, then they are balanced in length and is complete.
-        while selfHeadCopy is not None and qHeadCopy is not None:
-            # Saves next pointers, else they would be lost
-            selfNext = selfHeadCopy.next
-            qNext = qHeadCopy.next
+        #alterante list for the length of self
+        while (headOriginalCopy != None):
 
-            # Swaps the pointers of selfHead and qHead
-            selfHeadCopy.next = qHeadCopy
-            qHeadCopy.next = selfNext
+            if(headListToMergeCopy == None):
+                break
+            else:
+                nextOriginal = headOriginalCopy.next
+                nextListToMerge = headListToMergeCopy.next
 
-            # Traverse both the linked lists by one
-            selfHeadCopy = selfNext
-            qHeadCopy = qNext
+                # Swaps the pointers of selfHead and qHead
+                headOriginalCopy.next = headListToMergeCopy
+                headListToMergeCopy.next = nextOriginal
 
-            # We must also update q's head to be whatever the copy is now, as it is decreasing in size
-            q.head = qHeadCopy
+                # Traverse both the linked lists by one
+                headOriginalCopy = nextOriginal
+                headListToMergeCopy = nextListToMerge
 
-
+                # We must also update q's head to be whatever the copy is now, as it is decreasing in size
+                listToMerge.head = headListToMergeCopy
     # Function to print linked list
     def printList(self):
         if self.head == None:
@@ -85,3 +88,5 @@ class LinkedList(object):
             print(str(temp.data))
             temp = temp.next
         # print(" ")
+
+
