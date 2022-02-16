@@ -2,7 +2,6 @@
 from ast import For
 from itertools import count
 
-
 class LinkedList(object):
     def __init__(self):
         # head of the list
@@ -56,8 +55,7 @@ class LinkedList(object):
                         counter += 1
                         temp = temp.next
 
-#Nate Bursch's part
-
+    #Nate Bursch's part
     def alternateListJoin(self,listToMerge):
         headOriginalCopy = self.head
         headListToMergeCopy = listToMerge.head
@@ -81,11 +79,6 @@ class LinkedList(object):
 
                 # We must also update q's head to be whatever the copy is now, as it is decreasing in size
                 listToMerge.head = headListToMergeCopy
-            
-            
-
-
-
     # Function to print linked list
     def printList(self):
         if self.head == None:
