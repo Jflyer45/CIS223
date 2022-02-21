@@ -1,7 +1,6 @@
 import time, random
 from Assignment3Sorting.Sorts import insertionSort
 
-
 def getUnsortedArray(size):
     array = []
     for i in range(size):
@@ -19,7 +18,7 @@ def checkIfArrayIsSortedAscending(array):
 
 test = getUnsortedArray(10_000)
 t = time.process_time()
-sortedArray = insertionSort(test) # put sort here
+sortedArray = insertionSort(test, False)
 elapsed_time = time.process_time() - t
 
 print(elapsed_time)
