@@ -19,7 +19,7 @@ def checkIfArrayIsSortedAscending(array):
 # We must allow the system to do more recursive calls for quick sort
 sys.setrecursionlimit(2000)
 
-test = getUnsortedArray(1_000)
+test = getUnsortedArray(1_000_000)
 t = time.process_time()
 sortedArray = quickSort(test, 0, len(test)-1, False)
 elapsed_time = time.process_time() - t
@@ -27,3 +27,5 @@ elapsed_time = time.process_time() - t
 print(elapsed_time)
 print(checkIfArrayIsSortedAscending(test))
 print(test)
+
+print("Hello!" + str(elapsed_time))
