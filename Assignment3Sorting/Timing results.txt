@@ -6,16 +6,16 @@ A3: 3.3
 B1: 3.5
 B2: 4.4
 B3: 3.1
-Average:
+Average: 3.57
 
 100,000 item trials:
 A1: 439
 A2: 378
 A3: 315
-B1:
-B2:
-B3:
-Average:
+B1: 308
+B2: 412
+B3: 351
+Average: 367
 
 1,000,000 item trials:
 A1:
