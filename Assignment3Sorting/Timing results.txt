@@ -6,14 +6,16 @@ A3: 3.3
 B1: 3.5
 B2: 4.4
 B3: 3.1
+Average:
 
 100,000 item trials:
 A1: 439
-A2:
-A3:
+A2: 378
+A3: 315
 B1:
 B2:
 B3:
+Average:
 
 1,000,000 item trials:
 A1:
@@ -22,6 +24,7 @@ A3:
 B1:
 B2:
 B3:
+Average:
 
 === Merge Sort ===
 10,000 item trials:
@@ -31,6 +34,7 @@ A3:
 B1:
 B2:
 B3:
+Average:
 
 100,000 item trials:
 A1:
@@ -39,6 +43,7 @@ A3:
 B1:
 B2:
 B3:
+Average:
 
 1,000,000 item trials:
 A1:
@@ -47,6 +52,7 @@ A3:
 B1:
 B2:
 B3:
+Average:
 
 === Counting Sort ===
 10,000 item trials:
@@ -56,6 +62,7 @@ A3:
 B1:
 B2:
 B3:
+Average:
 
 100,000 item trials:
 A1:
@@ -64,6 +71,7 @@ A3:
 B1:
 B2:
 B3:
+Average:
 
 1,000,000 item trials:
 A1:
@@ -72,3 +80,4 @@ A3:
 B1:
 B2:
 B3:
+Average:
