@@ -6,7 +6,7 @@ def insertionSort(array, isAscendingOrder):
     for i in range(1, len(array)):
         currentNumber = array[i]
         j = i - 1
-        
+
         # If ascending currentNumber < array[j]
         if isAscendingOrder:
             while j >= 0 and currentNumber < array[j]:
