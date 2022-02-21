@@ -1,5 +1,5 @@
 import time, random
-from Assignment3Sorting.Sorts import insertionSort
+from Assignment3Sorting.Sorts import *
 
 def getUnsortedArray(size):
     array = []
@@ -8,7 +8,6 @@ def getUnsortedArray(size):
     return array
 
 def checkIfArrayIsSortedAscending(array):
-
     for i in range(len(array) - 1):
         if array[i] < array[i+1] or array[i] == array[i+1]:
             continue
