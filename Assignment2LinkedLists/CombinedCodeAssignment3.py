@@ -56,17 +56,19 @@ class LinkedList(object):
         headOriginalCopy = self.head
         headListToMergeCopy = listToMerge.head
 
-        #alterante list for the length of self
+        #check to make sure that the original list is not empty
         while (headOriginalCopy != None):
 
             if(headListToMergeCopy == None):
                 break
             else:
+                #create copies of the original next node and next of the merge list
                 nextOriginal = headOriginalCopy.next
                 nextListToMerge = headListToMergeCopy.next
 
-                # Swaps the pointers of selfHead and qHead
+                #now we make sure that the pointed nodes are lined up
                 headOriginalCopy.next = headListToMergeCopy
+                #next original is now the head
                 headListToMergeCopy.next = nextOriginal
 
                 # Traverse both the linked lists by one
