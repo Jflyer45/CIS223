@@ -22,8 +22,43 @@ def insertionSort(array, isAscendingOrder):
 
 
 # Problem 2
-def mergeSort(array):
-    print(array)
+
+def MergeSort(A):
+
+    if len(A) > 1:
+
+        # Divide Array into Left half , Right half
+        midPoint = len(A)//2
+        L = A[:midPoint]
+        R = A[midPoint:len(A)]
+
+        # Repeating until First halfed arrays sorted
+        MergeSort(L)
+        MergeSort(R)
+
+        #Sorting by using pointer
+        lp = 0 # left pointer
+        rp = 0 # right pointer
+        temp = None
+        SortedArray = []
+            
+        while lp < len(L) and rp < len(R):
+            if L[lp] < R[rp]:
+                SortedArray.append(L[lp])
+                lp += 1
+            else:
+                SortedArray.append(R[rp])
+                rp += 1
+            
+        if lp == len(L):
+            while rp < len(R):
+                SortedArray.append(R[rp])
+        else:
+            while lp < len(L):
+                SortedArray.append((L[lp]))
+
+    return SortedArray
+
 
 # Problem 3
 # Nate Bursch
