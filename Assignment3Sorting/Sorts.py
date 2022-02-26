@@ -9,9 +9,11 @@ def insertionSort(array, isAscendingOrder):
 
         # If ascending currentNumber < array[j]
         if isAscendingOrder:
+            # Goes through all the numbers backwards until it finds it's correct spot
             while j >= 0 and currentNumber < array[j]:
                 array[j + 1] = array[j]
                 j -= 1
+            # Places it at it's correct spot
             array[j + 1] = currentNumber
         # Else sort by descending by currentNumber > array[j]
         else:
@@ -25,39 +27,61 @@ def insertionSort(array, isAscendingOrder):
 
 def MergeSort(A):
 
-    if len(A) > 1:
+    if len(A) <= 1:
+        print("Returning original Array ............")
+        print(A)
+        return A
 
-        # Divide Array into Left half , Right half
+    else:
+        print("DIVIDING INTO TWO ARRAYS ............")
         midPoint = len(A)//2
         L = A[:midPoint]
         R = A[midPoint:len(A)]
 
-        # Repeating until First halfed arrays sorted
-        MergeSort(L)
-        MergeSort(R)
+        print("Recursion for L")
+        L = MergeSort(L)
+        print("Recursion for R")
+        R = MergeSort(R)
 
+        print("RETURNING MERGED ARRAY...")
+        return MergeArrays(L, R)
+
+def MergeArrays(L, R):
         #Sorting by using pointer
+        print("Defining pointer...")
         lp = 0 # left pointer
         rp = 0 # right pointer
-        temp = None
-        SortedArray = []
-            
+        mp = 0 # pointer for merged array
+        size = len(L) + len(R)
+        SortedArray = [None] * size # Assigning the size of array
+
         while lp < len(L) and rp < len(R):
             if L[lp] < R[rp]:
-                SortedArray.append(L[lp])
+                SortedArray[mp] = L[lp]
                 lp += 1
+                mp += 1
             else:
-                SortedArray.append(R[rp])
+                SortedArray[mp] = R[rp]
                 rp += 1
-            
-        if lp == len(L):
-            while rp < len(R):
-                SortedArray.append(R[rp])
-        else:
-            while lp < len(L):
-                SortedArray.append((L[lp]))
+                mp += 1
 
-    return SortedArray
+        # Assigning values in the rest of the array
+        if lp >= len(L):
+            while rp < len(R):
+                SortedArray[mp] = R[rp]
+                rp += 1
+                mp += 1
+
+        elif rp >= len(R):
+            while lp < len(L):
+                SortedArray[mp] = L[lp]
+                lp += 1
+                mp += 1
+
+        print("Returning Sorted Array .....")
+        print(SortedArray)
+        return SortedArray
+
 
 
 # Problem 3
