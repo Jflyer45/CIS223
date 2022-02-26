@@ -65,31 +65,33 @@ def MergeSort(A):
 #O(n+k)
 #k is the max number in the array
 #O(k) - stable sorting algorithm, the order of two numbers that are the same, is preserved.
-def countingSort(arraytoCount,maxNumber):
-
+def countingSort(arraytoCount):
+    BiggestNumber = int(max(arraytoCount)) # I feel that this number takes a very long time.
+    SmallestNumber = int(min(arraytoCount)) #this will fix the error when there is a 0 number
+    ArrayLength = int(len(arraytoCount))
     #this will just create the values to be 0, so no need to have the first loop
-    ArrayCount = [0] * int(maxNumber+1)
-    sortedArrayB = [None] * int(maxNumber+1)
-    
-
-    #second loop count the number of occurance
-    for j in range(1,len(arraytoCount)):
-        #so now at index j, the value is increased by one for every time the index is scene in arraytocount
-        ArrayCount[arraytoCount[j]] = ArrayCount[arraytoCount[j]]+1
-
-
-
+    #ArrayCount = [0] * (BiggestNumber+1) # we need to include 0 if it exists
+    #changing tit to the range of elemts between smalles ant biggest, because sometimes there might not be a 0
+    ArrayCount = [0] * (BiggestNumber-SmallestNumber+1)
+    ArrayOutput = [None] * ArrayLength
+    #'second' loop count the number of occurance
+    for i in range(0,ArrayLength):
+        #so now at index i, the value is increased by one for every time the index is scene in arraytocount
+        try:
+            ArrayCount[arraytoCount[i]-SmallestNumber] += 1
+        except:
+            continue
     #third loop adds all the values up in a running sum. index 1 = 1, index 2 = 3 and now its 4 because it adds one.
-    for i in range(1,maxNumber+1):
-        ArrayCount[i] = ArrayCount[i] + ArrayCount[i-1]
-
-    #fourth loop, place each element of counting array to the corrected sorratec position
-    for j in range(len(arraytoCount)-1,1,-1):
-        
-        sortedArrayB[ArrayCount[arraytoCount[j]]] = arraytoCount[j]
-        ArrayCount[arraytoCount[j]] = ArrayCount[arraytoCount[j]]-1
-    
-    return sortedArrayB
+    for j in range(1,len(ArrayCount)):
+        ArrayCount[j] = ArrayCount[j] + ArrayCount[j-1]
+    #fourth loop, place each element of counting array to the corrected sorrated position
+    for k in range(ArrayLength-1,-1,-1):
+        try:
+            ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
+            ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
+        except:
+            continue
+    return ArrayOutput
 
 
 
@@ -109,9 +111,12 @@ def checkIfArrayIsSortedAscending(array):
 
 size = 10000
 test = getUnsortedArray(size)
+
 t = time.process_time()
-sortedArray = countingSort(test,10000)
+sortedArray = countingSort(test)
 elapsed_time = time.process_time() - t
 
-print(sortedArray)
+print(checkIfArrayIsSortedAscending(sortedArray))
+#print(sortedArray)
+print("Time is: ")
 print(elapsed_time)
