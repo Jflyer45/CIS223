@@ -89,7 +89,7 @@ def MergeArrays(L, R):
 #O(n+k)
 #k is the max number in the array
 #O(k) - stable sorting algorithm, the order of two numbers that are the same, is preserved.
-def countingSort(arraytoCount):
+def countingSort(arraytoCount,isAcending):
     BiggestNumber = int(max(arraytoCount)) # I feel that this number takes a very long time.
     SmallestNumber = int(min(arraytoCount)) #this will fix the error when there is a 0 number
     ArrayLength = int(len(arraytoCount))
@@ -106,15 +106,34 @@ def countingSort(arraytoCount):
         except:
             continue
     #third loop adds all the values up in a running sum. index 1 = 1, index 2 = 3 and now its 4 because it adds one.
-    for j in range(1,len(ArrayCount)):
-        ArrayCount[j] = ArrayCount[j] + ArrayCount[j-1]
-    #fourth loop, place each element of counting array to the corrected sorrated position
-    for k in range(ArrayLength-1,-1,-1):
-        try:
-            ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
-            ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
-        except:
-            continue
+    if isAcending:
+        for j in range(1,len(ArrayCount)):
+            ArrayCount[j] = ArrayCount[j] + ArrayCount[j-1]
+
+            #fourth loop, place each element of counting array to the corrected sorrated position
+        for k in range(ArrayLength-1,-1,-1):
+            try:
+                ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
+                ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
+            except:
+                continue
+
+    else: #decensding order
+        
+        for j in range(len(ArrayCount)-2,-1,-1):
+            ArrayCount[j] = ArrayCount[j] + ArrayCount[j+1]
+        #fourth loop, place each element of counting array to the corrected sorrated position
+        
+        for k in range(0, ArrayLength):
+            try:
+                ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
+                ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
+            except:
+                continue
+
+
+    
+
     return ArrayOutput
 
 
@@ -122,7 +141,7 @@ def countingSort(arraytoCount):
 def getUnsortedArray(size):
     array = []
     for i in range(size):
-        array.append(random.randint(1, 10000))
+        array.append(random.randint(1, 1000000))
     return array
 
 def checkIfArrayIsSortedAscending(array):
@@ -133,14 +152,33 @@ def checkIfArrayIsSortedAscending(array):
             return False
     return True
 
-size = 10000
-test = getUnsortedArray(size)
+TotalTime = 0
+size = 1_000_000
+for i in range(3):
+    
+    test = getUnsortedArray(size)
+    Acending = True
+    print("Test {}".format(i))
+    t = time.process_time()
+    sortedArray = countingSort(test,Acending)
+    elapsed_time = time.process_time() - t
+    print(checkIfArrayIsSortedAscending(sortedArray))
+    #print(sortedArray)
+    print("Time is: {}".format(elapsed_time))
+    TotalTime += elapsed_time
+    
 
-t = time.process_time()
-sortedArray = countingSort(test)
-elapsed_time = time.process_time() - t
+for j in range(3):
+    
+    test = getUnsortedArray(size)
+    Acending = False
+    print("Test {}".format(j))
+    t = time.process_time()
+    sortedArray = countingSort(test,Acending)
+    elapsed_time = time.process_time() - t
+    print(checkIfArrayIsSortedAscending(sortedArray))
+    #print(sortedArray)
+    print("Time is: {}".format(elapsed_time))
+    TotalTime += elapsed_time
 
-print(checkIfArrayIsSortedAscending(sortedArray))
-#print(sortedArray)
-print("Time is: ")
-print(elapsed_time)
+print("Average Time = {}".format(TotalTime/6))
