@@ -17,7 +17,7 @@ def getDecendingArray(size):
         i -= 1
     return array
 
-def getUnsortedArray(size):
+def getRandomUnsortedList(size):
     array = []
     for i in range(size):
         array.append(random.randint(0, 100_000))
@@ -31,10 +31,28 @@ def checkIfArrayIsSortedAscending(array):
             return False
     return True
 
+<<<<<<< Updated upstream
 #test = getUnsortedArray(1000_000)
 test = getAscendingArray(10000)
 t = time.process_time()
 sortedArray = MergeSort(test)
+=======
+def getSortedListAsc(size):
+    returnList = []
+    for i in range(size):
+        returnList.append(i)
+    return returnList
+
+def getSortedListDesc(size):
+    returnList = []
+    for i in range(size):
+        returnList.append(size-i)
+    return returnList
+
+test = getSortedListDesc(100_000)
+t = time.process_time()
+sortedArray = insertionSort(test)
+>>>>>>> Stashed changes
 elapsed_time = time.process_time() - t
 
 print("\n****RESULT****")
