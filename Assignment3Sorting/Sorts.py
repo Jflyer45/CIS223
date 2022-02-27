@@ -2,17 +2,25 @@
 import time, random
 # Problem 1 Jeremy Fischer
 # Code is based off class code from slides
-def insertionSort(array):
+def insertionSort(array, isAscendingOrder):
     for i in range(1, len(array)):
         currentNumber = array[i]
         j = i - 1
 
-        # Goes through all the numbers backwards until it finds it's correct spot
-        while j >= 0 and currentNumber < array[j]:
-            array[j + 1] = array[j]
-            j -= 1
-        # Places it at it's correct spot
-        array[j + 1] = currentNumber
+        # If ascending currentNumber < array[j]
+        if isAscendingOrder:
+            # Goes through all the numbers backwards until it finds it's correct spot
+            while j >= 0 and currentNumber < array[j]:
+                array[j + 1] = array[j]
+                j -= 1
+            # Places it at it's correct spot
+            array[j + 1] = currentNumber
+        # Else sort by descending by currentNumber > array[j]
+        else:
+            while j >= 0 and currentNumber > array[j]:
+                array[j + 1] = array[j]
+                j -= 1
+            array[j + 1] = currentNumber
 
 
 # Problem 2
@@ -21,7 +29,7 @@ def MergeSort(A):
 
     if len(A) <= 1:
         #print("Returning original Array ............")
-        print(A)
+        #print(A)
         return A
 
     else:
@@ -130,58 +138,12 @@ def countingSort(arraytoCount,isAcending):
 
 
 
-
-def getUnsortedArray(size):
-    array = []
-    for i in range(size):
-        array.append(random.randint(1, 1000000))
-    return array
-
-def checkIfArrayIsSortedAscending(array):
-    for i in range(len(array) - 1):
-        if array[i] < array[i+1] or array[i] == array[i+1]:
-            continue
-        else:
-            return False
-    return True
-
-TotalTime = 0
-size = 1_000_000
-for i in range(3):
-    
-    test = getUnsortedArray(size)
-    Acending = True
-    print("Test {}".format(i))
-    t = time.process_time()
-    sortedArray = countingSort(test,Acending)
-    elapsed_time = time.process_time() - t
-    print(checkIfArrayIsSortedAscending(sortedArray))
-    #print(sortedArray)
-    print("Time is: {}".format(elapsed_time))
-    TotalTime += elapsed_time
-    
-
-for j in range(3):
-    
-    test = getUnsortedArray(size)
-    Acending = False
-    print("Test {}".format(j))
-    t = time.process_time()
-    sortedArray = countingSort(test,Acending)
-    elapsed_time = time.process_time() - t
-    print(checkIfArrayIsSortedAscending(sortedArray))
-    #print(sortedArray)
-    print("Time is: {}".format(elapsed_time))
-    TotalTime += elapsed_time
-
-print("Average Time = {}".format(TotalTime/6))
-
 # def getUnsortedArray(size):
 #     array = []
 #     for i in range(size):
-#         array.append(random.randint(1, 10000))
+#         array.append(random.randint(1, 1000000))
 #     return array
-#
+
 # def checkIfArrayIsSortedAscending(array):
 #     for i in range(len(array) - 1):
 #         if array[i] < array[i+1] or array[i] == array[i+1]:
@@ -189,16 +151,34 @@ print("Average Time = {}".format(TotalTime/6))
 #         else:
 #             return False
 #     return True
-#
-# size = 10000
-# test = getUnsortedArray(size)
-#
-# t = time.process_time()
-# sortedArray = countingSort(test)
-# elapsed_time = time.process_time() - t
-#
-# print(checkIfArrayIsSortedAscending(sortedArray))
-# #print(sortedArray)
-# print("Time is: ")
-# print(elapsed_time)
 
+# TotalTime = 0
+# size = 1_000_000
+# for i in range(3):
+    
+#     test = getUnsortedArray(size)
+#     Acending = True
+#     print("Test {}".format(i))
+#     t = time.process_time()
+#     sortedArray = countingSort(test,Acending)
+#     elapsed_time = time.process_time() - t
+#     print(checkIfArrayIsSortedAscending(sortedArray))
+#     #print(sortedArray)
+#     print("Time is: {}".format(elapsed_time))
+#     TotalTime += elapsed_time
+    
+
+# for j in range(3):
+    
+#     test = getUnsortedArray(size)
+#     Acending = False
+#     print("Test {}".format(j))
+#     t = time.process_time()
+#     sortedArray = countingSort(test,Acending)
+#     elapsed_time = time.process_time() - t
+#     print(checkIfArrayIsSortedAscending(sortedArray))
+#     #print(sortedArray)
+#     print("Time is: {}".format(elapsed_time))
+#     TotalTime += elapsed_time
+
+# print("Average Time = {}".format(TotalTime/6))
