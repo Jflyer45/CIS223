@@ -31,12 +31,12 @@ def checkIfArrayIsSortedAscending(array):
             return False
     return True
 
-<<<<<<< Updated upstream
+
 #test = getUnsortedArray(1000_000)
 test = getAscendingArray(10000)
 t = time.process_time()
 sortedArray = MergeSort(test)
-=======
+
 def getSortedListAsc(size):
     returnList = []
     for i in range(size):
@@ -52,7 +52,7 @@ def getSortedListDesc(size):
 test = getSortedListDesc(100_000)
 t = time.process_time()
 sortedArray = insertionSort(test)
->>>>>>> Stashed changes
+
 elapsed_time = time.process_time() - t
 
 print("\n****RESULT****")

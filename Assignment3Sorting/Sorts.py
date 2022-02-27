@@ -130,7 +130,7 @@ def countingSort(arraytoCount,isAcending):
 
 
 
-<<<<<<< Updated upstream
+
 def getUnsortedArray(size):
     array = []
     for i in range(size):
@@ -175,7 +175,7 @@ for j in range(3):
     TotalTime += elapsed_time
 
 print("Average Time = {}".format(TotalTime/6))
-=======
+
 # def getUnsortedArray(size):
 #     array = []
 #     for i in range(size):
@@ -201,4 +201,4 @@ print("Average Time = {}".format(TotalTime/6))
 # #print(sortedArray)
 # print("Time is: ")
 # print(elapsed_time)
->>>>>>> Stashed changes
+
