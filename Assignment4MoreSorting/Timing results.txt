@@ -1,0 +1,83 @@
+=== Quick Sort ===
+10,000 item trials:
+A1: .015
+A2: .015
+A3: .046
+B1: .031
+B2: .031
+B3: .156
+Average:
+
+100,000 item trials:
+A1: 0.875
+A2: 1.031
+A3: 0.981
+B1: 1.031
+B2: 0.891
+B3: 0.938
+Average:
+
+1,000,000 item trials:
+A1: 67.281
+A2: 73.422
+A3: 68.000
+B1: 69.049
+B2: 70.027
+B3: 69.432
+Average:
+
+=== Radix ===
+10,000 item trials:
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
+
+100,000 item trials:
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
+
+1,000,000 item trials:
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
+
+=== Heap Sort ===
+10,000 item trials:
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
+
+100,000 item trials:
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
+
+1,000,000 item trials:
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
