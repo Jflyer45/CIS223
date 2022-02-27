@@ -1,5 +1,21 @@
 import time, random
-from Assignment3Sorting.Sorts import *
+#from Assignment3Sorting.Sorts import *
+from Sorts import *
+
+
+def getAscendingArray(size):
+    array = []
+    for i in range(size):
+        array.append(i)
+    return array
+
+def getDecendingArray(size):
+    array = []
+    i = size
+    while i >= 1:
+        array.append(i)
+        i -= 1
+    return array
 
 def getUnsortedArray(size):
     array = []
@@ -15,9 +31,10 @@ def checkIfArrayIsSortedAscending(array):
             return False
     return True
 
-test = getUnsortedArray(1000_000)
+#test = getUnsortedArray(1000_000)
+test = getAscendingArray(10000)
 t = time.process_time()
-sortedArray = countingSort(test)
+sortedArray = MergeSort(test)
 elapsed_time = time.process_time() - t
 
 print("\n****RESULT****")

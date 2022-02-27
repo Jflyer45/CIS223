@@ -28,27 +28,27 @@ def insertionSort(array, isAscendingOrder):
 def MergeSort(A):
 
     if len(A) <= 1:
-        print("Returning original Array ............")
+        #print("Returning original Array ............")
         print(A)
         return A
 
     else:
-        print("DIVIDING INTO TWO ARRAYS ............")
+        #print("DIVIDING INTO TWO ARRAYS ............")
         midPoint = len(A)//2
         L = A[:midPoint]
         R = A[midPoint:len(A)]
 
-        print("Recursion for L")
+        #print("Recursion for L")
         L = MergeSort(L)
-        print("Recursion for R")
+        #print("Recursion for R")
         R = MergeSort(R)
 
-        print("RETURNING MERGED ARRAY...")
+        #print("RETURNING MERGED ARRAY...")
         return MergeArrays(L, R)
 
 def MergeArrays(L, R):
         #Sorting by using pointer
-        print("Defining pointer...")
+        #print("Defining pointer...")
         lp = 0 # left pointer
         rp = 0 # right pointer
         mp = 0 # pointer for merged array
@@ -78,8 +78,8 @@ def MergeArrays(L, R):
                 lp += 1
                 mp += 1
 
-        print("Returning Sorted Array .....")
-        print(SortedArray)
+        #print("Returning Sorted Array .....")
+        #print(SortedArray)
         return SortedArray
 
 
