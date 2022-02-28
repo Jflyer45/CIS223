@@ -1,6 +1,6 @@
 import time, random
-from Assignment3Sorting.Sorts import *
-# from Sorts import *
+#from Assignment3Sorting.Sorts import *
+from Sorts import *
 
 
 def getAscendingArray(size):
