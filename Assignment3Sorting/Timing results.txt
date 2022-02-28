@@ -1,30 +1,36 @@
 === Insertion Sort ===
 10,000 item trials:
-A1: 4
-A2: 3.1
-A3: 3.3
+A1: 0.0
+A2: 0.0
+A3: 0.0
+Average: 0.0
 B1: 3.5
 B2: 4.4
 B3: 3.1
-Average: 3.57
+Average: 3.667
+Total Average: 1.8335
 
 100,000 item trials:
-A1: 439
-A2: 378
-A3: 315
+A1: 0.03125
+A2: 0.015625
+A3: 0.015625
+Average: 0.016
 B1: 308
 B2: 412
 B3: 351
-Average: 367
+Average: 357
+Total Average: 178
 
 1,000,000 item trials:
-A1: < 8 hrs
-A2: < 8 hrs
-A3: < 8 hrs
+A1: 0.21875
+A2: 0.1875
+A3: 0.23475
+Average: 0.213
 B1: < 8 hrs
 B2: < 8 hrs
 B3: < 8 hrs
-Average: < 8 hrs. Prediction of 367 * 100 = 36700 seconds 
+Average: < 8 hrs. Prediction of 367 * 100 = 36700 seconds
+Total average: 18350
 
 === Merge Sort ===
 10,000 item trials:
