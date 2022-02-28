@@ -1,58 +1,64 @@
 === Insertion Sort ===
 10,000 item trials:
-A1: 4
-A2: 3.1
-A3: 3.3
+A1: 0.0
+A2: 0.0
+A3: 0.0
+Average: 0.0
 B1: 3.5
 B2: 4.4
 B3: 3.1
-Average: 3.57
+Average: 3.667
+Total Average: 1.8335
 
 100,000 item trials:
-A1: 439
-A2: 378
-A3: 315
+A1: 0.03125
+A2: 0.015625
+A3: 0.015625
+Average: 0.016
 B1: 308
 B2: 412
 B3: 351
-Average: 367
+Average: 357
+Total Average: 178
 
 1,000,000 item trials:
-A1: < 8 hrs
-A2: < 8 hrs
-A3: < 8 hrs
+A1: 0.21875
+A2: 0.1875
+A3: 0.23475
+Average: 0.213
 B1: < 8 hrs
 B2: < 8 hrs
 B3: < 8 hrs
-Average: < 8 hrs. Prediction of 367 * 100 = 36700 seconds 
+Average: < 8 hrs. Prediction of 367 * 100 = 36700 seconds
+Total average: 18350
 
 === Merge Sort ===
 10,000 item trials:
-A1: 0.027991000000000002
-A2: 0.021478000000000004
-A3: 0.019588999999999995
-B1: 0.019641999999999993
-B2: 0.01968200000000002
-B3: 0.019513000000000003
-Average: 0.02131583333333334
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
 
 100,000 item trials:
-A1: 0.22464200000000004
-A2: 0.22619399999999995
-A3: 0.22502100000000003
-B1: 0.23248800000000003
-B2: 0.23344199999999993
-B3: 0.2348539999999999
-Average: 0.22944016666666664
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
 
 1,000,000 item trials:
-A1: 2.767618
-A2: 2.6870660000000006
-A3: 2.654128000000001
-B1: 2.7081619999999997
-B2: 2.7157789999999995
-B3: 2.7046409999999987
-Average: 2.706232333333333
+A1:
+A2:
+A3:
+B1:
+B2:
+B3:
+Average:
 
 === Counting Sort ===
 10,000 item trials: Range(1 - 10,000)
