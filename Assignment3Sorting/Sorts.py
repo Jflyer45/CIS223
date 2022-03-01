@@ -89,10 +89,15 @@ def MergeArrays(L, R):
 #O(n+k)
 #k is the max number in the array
 #O(k) - stable sorting algorithm, the order of two numbers that are the same, is preserved.
-def countingSort(arraytoCount,isAcending):
+def countingSort(arraytoCount):
     BiggestNumber = int(max(arraytoCount)) # I feel that this number takes a very long time.
+
     SmallestNumber = int(min(arraytoCount)) #this will fix the error when there is a 0 number
+
+
     ArrayLength = int(len(arraytoCount))
+
+
     #this will just create the values to be 0, so no need to have the first loop
     #ArrayCount = [0] * (BiggestNumber+1) # we need to include 0 if it exists
     #changing tit to the range of elemts between smalles ant biggest, because sometimes there might not be a 0
@@ -101,84 +106,158 @@ def countingSort(arraytoCount,isAcending):
     #'second' loop count the number of occurance
     for i in range(0,ArrayLength):
         #so now at index i, the value is increased by one for every time the index is scene in arraytocount
-        try:
-            ArrayCount[arraytoCount[i]-SmallestNumber] += 1
-        except:
-            continue
+        ArrayCount[arraytoCount[i]-SmallestNumber] += 1
+        
     #third loop adds all the values up in a running sum. index 1 = 1, index 2 = 3 and now its 4 because it adds one.
-    if isAcending:
-        for j in range(1,len(ArrayCount)):
-            ArrayCount[j] = ArrayCount[j] + ArrayCount[j-1]
+    
+    for j in range(1,len(ArrayCount)):
+        ArrayCount[j] = ArrayCount[j] + ArrayCount[j-1]
 
-            #fourth loop, place each element of counting array to the corrected sorrated position
-        for k in range(ArrayLength-1,-1,-1):
-            try:
-                ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
-                ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
-            except:
-                continue
+    #fourth loop, place each element of counting array to the corrected sorrated position
+    for k in range(ArrayLength-1,-1,-1):
+        ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
+        ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
 
-    else: #decensding order
+    # else: #decensding order
         
-        for j in range(len(ArrayCount)-2,-1,-1):
-            ArrayCount[j] = ArrayCount[j] + ArrayCount[j+1]
-        #fourth loop, place each element of counting array to the corrected sorrated position
+    #     for j in range(len(ArrayCount)-2,-1,-1):
+    #         ArrayCount[j] = ArrayCount[j] + ArrayCount[j+1]
+    #     #fourth loop, place each element of counting array to the corrected sorrated position
         
-        for k in range(0, ArrayLength):
-            try:
-                ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
-                ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
-            except:
-                continue
+    #     for k in range(0, ArrayLength):
+    #         try:
+    #             ArrayOutput[ArrayCount[arraytoCount[k]-SmallestNumber]-1] = arraytoCount[k]
+    #             ArrayCount[arraytoCount[k] - SmallestNumber] = ArrayCount[arraytoCount[k]-SmallestNumber]-1
+    #         except:
+    #             continue
 
 
     
 
     return ArrayOutput
 
+def getAscendingArray(size):
+    array = []
+    for i in range(size):
+        array.append(i)
+    return array
+
+def getDecendingArray(size):
+    array = []
+    i = size
+    while i >= 1:
+        array.append(i)
+        i -= 1
+    return array
+
+def getUnsortedArray(size):
+    array = []
+    for i in range(size):
+        array.append(random.randint(0, 100_000))
+    return array
+
+def checkIfArrayIsSortedAscending(array):
+    for i in range(len(array) - 1):
+        if array[i] < array[i+1] or array[i] == array[i+1]:
+            continue
+        else:
+            return False
+    return True
 
 
-# def getUnsortedArray(size):
-#     array = []
-#     for i in range(size):
-#         array.append(random.randint(1, 1000000))
-#     return array
 
-# def checkIfArrayIsSortedAscending(array):
-#     for i in range(len(array) - 1):
-#         if array[i] < array[i+1] or array[i] == array[i+1]:
-#             continue
-#         else:
-#             return False
-#     return True
+def TestFunction(Size, Method):
+    S = Size
+    if Method == "I":
+        sorting = "insertion sort"
+    elif Method == "C":
+        sorting = "counting sort"
+    elif Method == "M":
+        sorting = "merge sort"
+    print(f"\nStart the testing for Size <{S}> array with <{sorting}>")
+    Result = []
 
-# TotalTime = 0
-# size = 1_000_000
-# for i in range(3):
+    if Method == "I":
+        for i in range(3):
+            print(f'Trial {i+1} for Ascending Array')
+            test = getAscendingArray(S)
+            t = time.process_time()
+            sortedArray = insertionSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+            
+
+        for i in range(3):
+            print(f'Trial {i+1} for Desceding Array')
+            test = getDecendingArray(S)
+            t = time.process_time()
+            sortedArray = insertionSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
     
-#     test = getUnsortedArray(size)
-#     Acending = True
-#     print("Test {}".format(i))
-#     t = time.process_time()
-#     sortedArray = countingSort(test,Acending)
-#     elapsed_time = time.process_time() - t
-#     print(checkIfArrayIsSortedAscending(sortedArray))
-#     #print(sortedArray)
-#     print("Time is: {}".format(elapsed_time))
-#     TotalTime += elapsed_time
-    
+    elif Method == "M":
+        for i in range(3):
+            print(f'Trial {i+1} for Ascending Array')
+            test = getAscendingArray(S)
+            t = time.process_time()
+            sortedArray = MergeSort(test)
+            elapsed_time = time.process_time() - t
 
-# for j in range(3):
-    
-#     test = getUnsortedArray(size)
-#     Acending = False
-#     print("Test {}".format(j))
-#     t = time.process_time()
-#     sortedArray = countingSort(test,Acending)
-#     elapsed_time = time.process_time() - t
-#     print(checkIfArrayIsSortedAscending(sortedArray))
-#     #print(sortedArray)
-#     print("Time is: {}".format(elapsed_time))
-#     TotalTime += elapsed_time
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+            
 
-# print("Average Time = {}".format(TotalTime/6))
+        for i in range(3):
+            print(f'Trial {i+1} for Desceding Array')
+            test = getDecendingArray(S)
+            t = time.process_time()
+            sortedArray = MergeSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+
+    elif Method == "C":
+        for i in range(3):
+            print(f'Trial {i+1} for Ascending Array')
+            test = getAscendingArray(S)
+            t = time.process_time()
+            sortedArray = countingSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+            
+
+        for i in range(3):
+            print(f'Trial {i+1} for Desceding Array')
+            test = getDecendingArray(S)
+            t = time.process_time()
+            sortedArray = countingSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+        
+        else: 
+            print("Method should be I, M, or C")
+
+    Sum = 0
+    for T in Result:
+        Sum += T
+    Avg = Sum / len(Result)
+
+    print(f"Result\n {Result}")
+    print(f' Avg Time: {Avg}')
+
+    print("\n***** TEST COMPLETED *****")
+
+
+# Method Selction: I-> Insertion Sort /// C -> Counting Sort /// M -> Merge Sort
+TestFunction(10000, "C")
+TestFunction(100000, "C")
+TestFunction(1000000, "C")
