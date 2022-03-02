@@ -2,25 +2,17 @@
 import time, random
 # Problem 1 Jeremy Fischer
 # Code is based off class code from slides
-def insertionSort(array, isAscendingOrder):
+def insertionSort(array):
     for i in range(1, len(array)):
         currentNumber = array[i]
         j = i - 1
 
-        # If ascending currentNumber < array[j]
-        if isAscendingOrder:
-            # Goes through all the numbers backwards until it finds it's correct spot
-            while j >= 0 and currentNumber < array[j]:
-                array[j + 1] = array[j]
-                j -= 1
-            # Places it at it's correct spot
-            array[j + 1] = currentNumber
-        # Else sort by descending by currentNumber > array[j]
-        else:
-            while j >= 0 and currentNumber > array[j]:
-                array[j + 1] = array[j]
-                j -= 1
-            array[j + 1] = currentNumber
+        # Goes through all the numbers backwards until it finds it's correct spot
+        while j >= 0 and currentNumber < array[j]:
+            array[j + 1] = array[j]
+            j -= 1
+        # Places it at it's correct spot
+        array[j + 1] = currentNumber
 
 
 # Problem 2
@@ -258,6 +250,6 @@ def TestFunction(Size, Method):
 
 
 # Method Selction: I-> Insertion Sort /// C -> Counting Sort /// M -> Merge Sort
-TestFunction(10000, "C")
+TestFunction(10000, "I")
 TestFunction(100000, "C")
 TestFunction(1000000, "C")
