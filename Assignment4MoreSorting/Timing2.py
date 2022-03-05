@@ -1,10 +1,18 @@
-import time, random, sys
+import time, sys
 from Assignment4MoreSorting.Sort import *
 
-def getUnsortedArray(size):
+def getAscendingArray(size):
     array = []
     for i in range(size):
-        array.append(random.randint(0, 1000))
+        array.append(i)
+    return array
+
+def getDecendingArray(size):
+    array = []
+    i = size
+    while i >= 1:
+        array.append(i)
+        i -= 1
     return array
 
 def checkIfArrayIsSortedAscending(array):
@@ -17,15 +25,10 @@ def checkIfArrayIsSortedAscending(array):
     return True
 
 # We must allow the system to do more recursive calls for quick sort
-sys.setrecursionlimit(2000)
-
-test = getUnsortedArray(1_000_000)
+sys.setrecursionlimit(10000)
+test = getAscendingArray(10000)
 t = time.process_time()
 sortedArray = quickSort(test, 0, len(test)-1, False)
 elapsed_time = time.process_time() - t
 
-print(elapsed_time)
-print(checkIfArrayIsSortedAscending(test))
-print(test)
-
-print("Hello!" + str(elapsed_time))
+print("Elapsed Time: " + str(elapsed_time))
