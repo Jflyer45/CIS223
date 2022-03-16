@@ -1,5 +1,5 @@
 import time, random, sys
-from Assignment4MoreSorting.Sort import *
+from Sort import *
 
 def getAscendingArray(size):
     array = []
@@ -34,6 +34,7 @@ def checkIfArrayIsSortedAscending(array):
 sys.setrecursionlimit(20000)
 
 test = getAscendingArray(100_000)
+
 t = time.process_time()
 sortedArray = quickSort(test, 0, len(test)-1)
 elapsed_time = time.process_time() - t
@@ -41,3 +42,4 @@ elapsed_time = time.process_time() - t
 print(test)
 print("Time: " + str(elapsed_time))
 print("Is sorted: " + str(checkIfArrayIsSortedAscending(test)))
+
