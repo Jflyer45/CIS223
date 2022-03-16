@@ -33,7 +33,7 @@ def checkIfArrayIsSortedAscending(array):
 # We must allow the system to do more recursive calls for quick sort
 sys.setrecursionlimit(20000)
 
-test = getAscendingArray(100_000)
+test = getAscendingArray(1_000_000)
 
 t = time.process_time()
 sortedArray = quickSort(test, 0, len(test)-1)

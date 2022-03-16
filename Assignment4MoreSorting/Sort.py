@@ -28,7 +28,6 @@ def quickSort(arr, low, high):
         return arr
     if low < high:
         pivotIndex = partitionRandom(arr, low, high)
-        q = partition(arr, low, high)
         quickSort(arr, low, pivotIndex - 1)
         quickSort(arr, pivotIndex + 1, high)
 
