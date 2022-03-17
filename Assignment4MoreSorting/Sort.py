@@ -1,4 +1,4 @@
-import random
+import random,time
 
 # This is the function to deal with the split up array, which is really
 # just a index range
@@ -49,3 +49,115 @@ def partitionRandom(arr, start, stop):
     # Finally call partition like normal, but now with a number swapped.
     # Pivot value later becomes A[start]
     return partition(arr, start, stop)
+
+
+
+#Nates Part
+def radixSort(array):
+    #create ten buckets related the the base amount of integers 0-9
+    #O(nw) w is the length of the longest digit, very fast for lots of data, super slow for small data with large digits
+    #get max amount of digits
+    maxDigits = len(str(max(array)))
+    #now do the radix sort
+    #this is starting the bucket list
+    for digit in range(0,maxDigits):
+        #create the buckets 0-9 = 10
+        buckets = [[] for i in range(10)]
+        #now we can cycle through
+        #constant exponent for each number, cut time in almost half
+        e = 10**digit
+        for number in array:
+            #this gets the right most digit so we know what bucket to put the number in
+            bucketNumber = number // e % 10
+            #add the number to the bucket
+            buckets[bucketNumber].append(number)
+        #now we need to flatten
+        array = []
+        for bucket in buckets:
+            for number in bucket:
+                array.append(number)
+    return array
+
+
+
+#timing and other stuff
+def getAscendingArray(size):
+    array = []
+    for i in range(size):
+        array.append(i)
+    return array
+
+def getDecendingArray(size):
+    array = []
+    i = size
+    while i >= 1:
+        array.append(i)
+        i -= 1
+    return array
+
+def getUnsortedArray(size):
+    array = []
+    for i in range(size):
+        array.append(random.randint(0, 1000))
+    return array
+
+def checkIfArrayIsSortedAscending(array):
+
+    for i in range(len(array) - 1):
+        if array[i] < array[i+1] or array[i] == array[i+1]:
+            continue
+        else:
+            return False
+    return True
+
+# We must allow the system to do more recursive calls for quick sort
+
+
+def TestFunction(Size, Method):
+    S = Size
+    if Method == "R":
+        sorting = "Radix Sort"
+    elif Method == "Q":
+        sorting = "Quick sort"
+    elif Method == "H":
+        sorting = "Heap sort"
+    print(f"\nStart the testing for Size <{S}> array with <{sorting}>")
+    Result = []
+
+    if Method == "R":
+        for i in range(3):
+            print(f'Trial {i+1} for Ascending Array')
+            test = getAscendingArray(S)
+            t = time.process_time()
+            sortedArray = radixSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+            
+
+        for i in range(3):
+            print(f'Trial {i+1} for Desceding Array')
+            test = getDecendingArray(S)
+            t = time.process_time()
+            sortedArray = radixSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+    
+    Sum = 0
+    for T in Result:
+        Sum += T
+    Avg = Sum / len(Result)
+
+    print(f"Result\n {Result}")
+    print(f' Avg Time: {Avg}')
+
+    print("\n***** TEST COMPLETED *****")
+
+
+# Method Selction: I-> Insertion Sort /// C -> Counting Sort /// M -> Merge Sort
+TestFunction(10000, "R")
+TestFunction(100000, "R")
+TestFunction(1000000, "R")
