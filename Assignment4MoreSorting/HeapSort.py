@@ -1,3 +1,6 @@
+from Sort import getAscendingArray, getDecendingArray, getUnsortedArray
+import sys
+
 #Sungjae
 
 # Building Max Heap
@@ -17,7 +20,9 @@ def MaxHeapify(Array, i, SizeofArray):
     if Largest != i:
         Array[i], Array[Largest] = Array[Largest], Array[i]
 
-        MaxHeapify(Array, Largest, SizeofArray) # Recursion for Maxheapifying the next level of tree
+        #MaxHeapify(Array, Largest, SizeofArray) # Recursion for Maxheapifying the next level of tree
+    if LeftChild < SizeofArray and RightChild < SizeofArray and Array[LeftChild] > Array[RightChild]:
+        Array[LeftChild], Array[RightChild] = Array[RightChild], Array[LeftChild]    
 
 def BuildMaxHeap(Array, sizeofArray):
     i = sizeofArray // 2 - 1 # last non-leaf node
@@ -32,3 +37,12 @@ def HeapSort(Array):
         BuildMaxHeap(Array, size)
         Array[0], Array[size-1] = Array[size-1], Array[0]
         size = size - 1
+
+print(sys.getrecursionlimit())
+sys.setrecursionlimit(1000000000)
+print(sys.getrecursionlimit())
+
+A = getAscendingArray(100000)
+print('Finish Getting Array')
+HeapSort(A)
+#print(A)
