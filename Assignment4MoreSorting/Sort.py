@@ -183,6 +183,28 @@ def TestFunction(Size, Method):
 
             # print(elapsed_time)
             Result.append(elapsed_time)
+
+    if Method == "H":
+        for i in range(3):
+            print(f'Trial {i+1} for Ascending Array')
+            test = getAscendingArray(S)
+            t = time.process_time()
+            sortedArray = HeapSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
+            
+
+        for i in range(3):
+            print(f'Trial {i+1} for Desceding Array')
+            test = getDecendingArray(S)
+            t = time.process_time()
+            sortedArray = HeapSort(test)
+            elapsed_time = time.process_time() - t
+
+            # print(elapsed_time)
+            Result.append(elapsed_time)
     
     Sum = 0
     for T in Result:
@@ -195,7 +217,7 @@ def TestFunction(Size, Method):
     print("\n***** TEST COMPLETED *****")
 
 
-# Method Selction: I-> Insertion Sort /// C -> Counting Sort /// M -> Merge Sort
-TestFunction(10000, "R")
-TestFunction(100000, "R")
-TestFunction(1000000, "R")
+# Method Selction: R-> Radix Sort /// H -> Heap Sort /// Q -> Quick Sort
+TestFunction(10000, "H")
+TestFunction(100000, "H")
+TestFunction(1000000, "H")
