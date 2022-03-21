@@ -220,5 +220,5 @@ def TestFunction(Size, Method):
 
 # Method Selction: R-> Radix Sort /// H -> Heap Sort /// Q -> Quick Sort
 #TestFunction(10000, "H")
-#TestFunction(100000, "H")
-#TestFunction(1000000, "H")
+#estFunction(100000, "H")
+TestFunction(1000000, "H")
