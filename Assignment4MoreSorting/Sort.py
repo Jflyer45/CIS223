@@ -47,7 +47,7 @@ def partitionRandom(arr, start, stop):
     # We then swap the start and the random pivot
     arr[start], arr[randpivot] = arr[randpivot], arr[start]
     # Finally call partition like normal, but now with a number swapped.
-    # Pivot value later becomes A[start]
+    # randpivot value later becomes A[start]
     return partition(arr, start, stop)
 
 
