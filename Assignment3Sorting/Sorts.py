@@ -251,5 +251,5 @@ def TestFunction(Size, Method):
 
 # Method Selction: I-> Insertion Sort /// C -> Counting Sort /// M -> Merge Sort
 TestFunction(10000, "I")
-TestFunction(100000, "C")
-TestFunction(1000000, "C")
+TestFunction(100000, "I")
+TestFunction(1000000, "I")
