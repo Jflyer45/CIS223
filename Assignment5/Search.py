@@ -6,3 +6,6 @@ def linearSearch(A, key):
             doesExist = True
             break
     return doesExist
+
+def BinarySearch():
+    pass
