@@ -23,4 +23,4 @@ def testingTime(size, target, mode):
         print(i)
     print("Average: " + str((times[0]+times[1]+times[2])/3))
 
-testingTime(100_000, -1, "l")
+testingTime(100_000, 26, "2")
