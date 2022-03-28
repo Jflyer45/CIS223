@@ -1,5 +1,23 @@
 from Search import *
+import time, sys
 
-test = [1, 3, 4, 1, 2 ,3]
+def getAscendingArray(size):
+    array = []
+    for i in range(size):
+        # Starts at 1 now
+        array.append(i+1)
+    return array
 
-print(linearSearch(test, 8))
+def testingTime(size, target):
+    test = getAscendingArray(size)
+    times = []
+    for i in range(1, 4):
+        t = time.process_time()
+        print(linearSearch(test, target))
+        elapsed_time = time.process_time() - t
+        times.append(elapsed_time)
+    for i in times:
+        print(i)
+    print("Average: " + str((times[0]+times[1]+times[2])/3))
+
+testingTime(100_000, 1)
