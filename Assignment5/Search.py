@@ -56,71 +56,53 @@ def randomizedSelect(A, p, q, i):
     else: 
         return randomizedSelect(A, r + 1, q, i - k)
 
-def randomizedPartition(A, p, q):
-    print("Randomized Partition Execution") # this printing line is for debugging
-    if p < q:
-        i = random.randrange(p, q)
-        A[p], A[i] = A[i], A[p]
-    elif p > q:
-        raise ValueError("INDEX SHOULD BE P <= Q") # this printing line is for debugging
-    else:
-        return p
+def randomizedPartition(arr, start, stop):
+    # Doing this helps when the array is already sorted.
+    # We just chose a random index within the range
+    randpivot = random.randrange(start, stop)
 
-    return partition(A, p, q)
+    # We then swap the start and the random pivot
+    arr[start], arr[randpivot] = arr[randpivot], arr[start]
+    # Finally call partition like normal, but now with a number swapped.
+    # randpivot value later becomes A[start]
+    return partition(arr, start, stop)
 
-
-def partition(A, p, q):
-    print("Partition Execution") # this printing line is for debugging
-    pivot = A[p]
-    leftindex = p + 1
-    rightindex = p + 2
-
-    while rightindex <= q:
-        if A[leftindex] < pivot:
-            A[leftindex], A[rightindex] = A[rightindex], A[leftindex]
-            leftindex += 1
-        rightindex += 1
-    
-    A[p], A[leftindex] = A[leftindex], A[p]
-    return leftindex
+def partition(A, p, r):
+    pivotValue = A[p]
+    leftMark = p + 1
+    rightMark = r
+    done = False
+    # Keeps adjusting the marks left/right until they cross and while they havn't
+    # swaps the values when appropriate.
+    while not done:
+        while leftMark <= rightMark and A[leftMark] <= pivotValue:
+            leftMark = leftMark + 1
+        while A[rightMark] >= pivotValue and rightMark >= leftMark:
+            rightMark = rightMark - 1
+        if rightMark < leftMark:
+            done = True
+        else:
+            leftData = A[leftMark]
+            rightData = A[rightMark]
+            A[leftMark] = rightData
+            A[rightMark] = leftData
+    # At the end we still need to swap values of index's p and rightmark
+    pData = A[p]
+    rightData = A[rightMark]
+    A[p] = rightData
+    A[rightMark] = pData
+    return rightMark
 
 
 sys.setrecursionlimit(100)
 print(sys.getrecursionlimit())
 
-A = [8, 3, 1, 4, 6, 9, 2, 11]
-i = int(input())
-result = OrderStatistic(A, i)
+A = [8, 3, 1, 6, 9, 2, 11]
+# i = int(input())
+result = OrderStatistic(A, 4)
 
 print("\n\n **** ")
-print(f"Returning {i}th smallest number")
+print(f"Returning {1}th smallest number")
 print(result)
 print(A)
 print("Function END")
-
-# This is the function to deal with the split up array, which is really
-# just a index range
-    # pivotValue = A[p]
-    # leftMark = p + 1
-    # rightMark = r
-    # done = False
-    # # Keeps adjusting the marks left/right until they cross and while they havn't
-    # # swaps the values when appropriate.
-    # while not done:
-    #     while leftMark <= rightMark and A[leftMark] <= pivotValue:
-    #         leftMark = leftMark + 1
-    #     while A[rightMark] >= pivotValue and rightMark >= leftMark:
-    #         rightMark = rightMark - 1
-    #     if rightMark < leftMark:
-    #         done = True
-    #     else:
-    #         leftData = A[leftMark]
-    #         rightData = A[rightMark]
-    #         A[leftMark] = rightData
-    #         A[rightMark] = leftData
-    # # At the end we still need to swap values of index's p and rightmark
-    # pData = A[p]
-    # rightData = A[rightMark]
-    # A[p] = rightData
-    # A[rightMark] = pData
-    # return rightMark
