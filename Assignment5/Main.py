@@ -23,4 +23,6 @@ def testingTime(size, target, mode):
         print(i)
     print("Average: " + str((times[0]+times[1]+times[2])/3))
 
-testingTime(100_000, 26, "2")
+# testingTime(100_000, 2, "2")
+
+print(OrderStatistic(getAscendingArray(1000), 50))

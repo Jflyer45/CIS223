@@ -1,4 +1,5 @@
-import math
+import math, random
+
 # Task 1
 def linearSearch(A, key):
     doesExist = False
@@ -33,3 +34,52 @@ def BinarySearch(A, key):
             else:
                 start = midpointIndex + 1
     return found
+
+# Task 3
+def OrderStatistic(A, n):
+    pass
+
+def randomizedSelect(A,p,r,i):
+    if p == r:
+        return A[p]
+    q = randomizedPartition(A,p,r)
+    k = q - p + 1
+    if i==k:
+        return A[q]
+    elif i<k:
+        return randomizedSelect(A,p,q -1, i)
+    else: 
+        return randomizedSelect(A, q + 1, r, i-k)
+
+def randomizedPartition(arr, start, stop):
+    randpivot = random.randrange(start, stop)
+    arr[start], arr[randpivot] = arr[randpivot], arr[start]
+    return partition(arr, start, stop)
+
+# This is the function to deal with the split up array, which is really
+# just a index range
+def partition(A, p, r):
+    pivotValue = A[p]
+    leftMark = p + 1
+    rightMark = r
+    done = False
+    # Keeps adjusting the marks left/right until they cross and while they havn't
+    # swaps the values when appropriate.
+    while not done:
+        while leftMark <= rightMark and A[leftMark] <= pivotValue:
+            leftMark = leftMark + 1
+        while A[rightMark] >= pivotValue and rightMark >= leftMark:
+            rightMark = rightMark - 1
+        if rightMark < leftMark:
+            done = True
+        else:
+            leftData = A[leftMark]
+            rightData = A[rightMark]
+            A[leftMark] = rightData
+            A[rightMark] = leftData
+    # At the end we still need to swap values of index's p and rightmark
+    pData = A[p]
+    rightData = A[rightMark]
+    A[p] = rightData
+    A[rightMark] = pData
+    return rightMark
