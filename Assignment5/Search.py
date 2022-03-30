@@ -36,6 +36,19 @@ def BinarySearch(A, key):
                 start = midpointIndex + 1
     return found
 
+#Ascending List of 100k
+#Best Case - Midpoint = 50_000
+# 0.0
+# 0.0
+# 0.0
+# Average: 0.0
+#worst Case - last element = 100_000
+# 0.0
+# 0.0
+# 0.0
+# Average: 0.0
+
+
 # Task 3
 def OrderStatistic(A, i):
     p = 0

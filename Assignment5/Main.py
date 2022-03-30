@@ -23,15 +23,15 @@ def testingTime(size, target, mode):
         print(i)
     print("Average: " + str((times[0]+times[1]+times[2])/3))
 
-# testingTime(100_000, 2, "2")
+testingTime(100_000, 100_000, "2")
 
-# Order Statistic Question
-A = generateArray(100_000)
-print(A)
-min = OrderStatistic(A, 1)
-max = OrderStatistic(A, len(A))
-print("\n\n **** ")
-print(f"Returning {1}st smallest number: {min}")
-print()
-print(f"Returning {1}st largest number: {max}")
-print("Function END")
+# # Order Statistic Question
+# A = generateArray(100_000)
+# print(A)
+# min = OrderStatistic(A, 1)
+# max = OrderStatistic(A, len(A))
+# print("\n\n **** ")
+# print(f"Returning {1}st smallest number: {min}")
+# print()
+# print(f"Returning {1}st largest number: {max}")
+# print("Function END")
