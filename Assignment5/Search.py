@@ -93,16 +93,22 @@ def partition(A, p, r):
     A[rightMark] = pData
     return rightMark
 
+def generateArray(n):
+    A = []
+    count = 0
+    while count <= n:
+        r = random.randint(1, n)
+        A.append(r)
+        count += 1
+    return A
+        
 
-sys.setrecursionlimit(100)
-print(sys.getrecursionlimit())
-
-A = [8, 3, 1, 6, 9, 2, 11]
-i = int(input())
-result = OrderStatistic(A, i)
-
-print("\n\n **** ")
-print(f"Returning {i}th smallest number")
-print(result)
+A = generateArray(100_000)
 print(A)
+min = OrderStatistic(A, 1)
+max = OrderStatistic(A, len(A))
+print("\n\n **** ")
+print(f"Returning {1}st smallest number: {min}")
+print()
+print(f"Returning {1}st largest number: {max}")
 print("Function END")
