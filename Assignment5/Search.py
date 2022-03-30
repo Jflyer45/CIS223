@@ -98,11 +98,11 @@ sys.setrecursionlimit(100)
 print(sys.getrecursionlimit())
 
 A = [8, 3, 1, 6, 9, 2, 11]
-# i = int(input())
-result = OrderStatistic(A, 4)
+i = int(input())
+result = OrderStatistic(A, i)
 
 print("\n\n **** ")
-print(f"Returning {1}th smallest number")
+print(f"Returning {i}th smallest number")
 print(result)
 print(A)
 print("Function END")
