@@ -10,6 +10,21 @@ def linearSearch(A, key):
             break
     return doesExist
 
+/''' 
+Ascending List of 100k elements
+The Best Case - searching the smallest number
+Attempt 1: 2.4999e-05
+Attempt 2: 2.000e-06
+Attempt 3: 1.000e-06
+Average: 9.3333e-06
+
+The Worst Case - searching the largest number
+Attempt 1: 0.001928
+Attempt 2: 0.00177
+Attempt 3: 0.001815
+Average: .00184
+'''/
+
 # Task 2
 def BinarySearch(A, key):
     found = False
