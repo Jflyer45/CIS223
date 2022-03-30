@@ -21,9 +21,9 @@ def testingTime(size, target, mode):
         times.append(elapsed_time)
     for i in times:
         print(i)
-    print("Average: " + str((times[0]+times[1]+times[2])/3))
+    print(f"Average:  { (times[0] + times[1] + times[2]) / 3 }")
 
-# testingTime(100_000, 2, "2")
+testingTime(100_0000, 1000000, "l")
 
 # Order Statistic Question
 A = generateArray(100_000)

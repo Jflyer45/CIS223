@@ -103,12 +103,3 @@ def generateArray(n):
     return A
         
 
-A = generateArray(100_000)
-print(A)
-min = OrderStatistic(A, 1)
-max = OrderStatistic(A, len(A))
-print("\n\n **** ")
-print(f"Returning {1}st smallest number: {min}")
-print()
-print(f"Returning {1}st largest number: {max}")
-print("Function END")
