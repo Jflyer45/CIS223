@@ -10,7 +10,7 @@ def linearSearch(A, key):
             break
     return doesExist
 
-/''' 
+''' 
 Ascending List of 100k elements
 The Best Case - searching the smallest number
 Attempt 1: 2.4999e-05
@@ -23,7 +23,7 @@ Attempt 1: 0.001928
 Attempt 2: 0.00177
 Attempt 3: 0.001815
 Average: .00184
-'''/
+'''
 
 # Task 2
 def BinarySearch(A, key):
