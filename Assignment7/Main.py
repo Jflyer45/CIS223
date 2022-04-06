@@ -1,3 +1,6 @@
+import imp
+from SearchFunctions import *
+
 G = {"P":["Q","R"], "Q":["P","R"], "R":["P","Q"]}
 
 # Task 4
