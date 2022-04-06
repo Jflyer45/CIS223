@@ -4,3 +4,5 @@ def BFS():
 def DFS():
     pass
 
+def cycle_detect():
+    pass
