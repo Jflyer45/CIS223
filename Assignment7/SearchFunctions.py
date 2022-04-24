@@ -1,38 +1,3 @@
-def BFS(graph, start):
-    # Gotta add the starting vertex to the set and queue
-    frontierQueue = []
-    discovered = []
-    frontierQueue.append(start)
-    discovered.append(start)
-
-    while(len(frontierQueue) != 0):
-        current = frontierQueue.pop()
-        print(f"Current Node: {current}")
-        for vertex in graph[current]:
-            if(vertex not in discovered):
-                frontierQueue.append(vertex)
-                discovered.append(vertex)
-    return discovered
-
-def DFS(graph,startnode):
-    vistedverticies = []
-    stack = TwoStack(len(graph),0)
-    stack.Push1(startnode)
-
-    while (not stack.isEmpty1()):
-        currentvertex = stack.Pop1()
-        if (currentvertex is not vistedverticies):
-            vistedverticies.append(currentvertex)
-            for vertex in currentvertex:
-                stack.Push1(vertex)
-
-
-    
-
-def cycle_detect():
-    pass
-
-
 class TwoStack:
     
     # variables shared by all two stacks
@@ -107,3 +72,42 @@ class TwoStack:
             return True
         else:
             False
+            
+def BFS(graph, start):
+    # Gotta add the starting vertex to the set and queue
+    frontierQueue = []
+    discovered = []
+    frontierQueue.append(start)
+    discovered.append(start)
+
+    while(len(frontierQueue) != 0):
+        current = frontierQueue.pop()
+        print(f"Current Node: {current}")
+        for vertex in graph[current]:
+            if(vertex not in discovered):
+                frontierQueue.append(vertex)
+                discovered.append(vertex)
+    return discovered
+
+def DFS(graph,startnode):
+    vistedverticies = []
+    stack = TwoStack(len(graph),100)
+    stack.Push1(startnode)
+    
+    while (not stack.isEmpty1()):
+        
+        currentvertex = stack.Pop1()
+         
+        if (not currentvertex in vistedverticies):
+            vistedverticies.append(currentvertex)
+            for vertex in graph[currentvertex]:
+                stack.Push1(vertex)
+        
+    return vistedverticies
+
+    
+
+def cycle_detect():
+    pass
+
+
