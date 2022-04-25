@@ -1,6 +1,3 @@
-from ast import Starred
-from locale import currency
-from pydoc import visiblename
 
 
 class TwoStack:
@@ -111,44 +108,86 @@ def DFS(graph,startnode):
         
     return vistedverticies
 
-    
-
-
-class Vertex:
-    def __init__(self):
-        self.adj = []
-    
-    def addAdj(self, vertex):
-        self.adj.append(vertex)
-
-def isCyclic(vertex, visited, parent):
-    visited = {}
-    visited[vertex] = True
-
-    for adj in vertex.adj:
-        if visited[adj] != True:
-            if isCyclic(adj, visited, vertex):
-                return True
-        elif adj != parent:
-            return True
-    
-    return False
-
 
 def cycle_detect(graph):
-    visited = [False] * len(graph)
-    G = []
-    for v in graph:
-        Ve = Vertex()
-        for i in v:
-            Ve.addAdj(i)
-        G.append(Ve)
+    visited = []
 
-    for v in G:
-        if isCyclic(v, visited, None):
+    for v in graph:
+        if v not in visited:
+            if iscyclic(graph, v, visited, None) == True:
+                return True
+    
+    return False
+
+
+def iscyclic(graph, vertex, visited, parent):
+    visited.append(vertex)
+
+    for v in graph[vertex]:
+        if v not in visited:
+            if iscyclic(graph, v, visited, vertex) == True:
+                return True
+
+            elif parent != v:
+                return True
+
+    return False
+        
+
+
+
+'''
+def isCycle(graph, startnode):
+    visited = []
+    stack = []
+    currentVertex = startnode
+    prev = None
+    visited.append(currentVertex)
+
+    for v in graph:
+        verticies = graph.get(v)
+        if cyclic(stack, verticies, visited, prev) == True:
             return True
     
     return False
+            
+
+def cyclic(stack, vertex, visited, prev):
+    visited.append(vertex)
+    for adj in vertex:
+        stack.insert(0, adj)
+
+    for v in vertex:
+        if v in visited:
+            if v == prev:
+                pass
+            else:
+                return True
+        elif v not in visited:
+            cyclic(stack, v, visited, vertex)
+    return False
+
+def cycle_detect(graph):
+    visited = []
+    stack = []
+    for v in graph:
+        if isCyclic(graph, v, visited, stack, None) == True:
+            return True
+        return False
+
+def isCyclic(graph, startnode, visited, stack, parent):
+    adj = graph.get(startnode)
+    for v in adj:
+        stack.append(v)
+    for v in stack:
+        current = stack.pop(0)
+        if current not in visited:
+            visited.append(current)
+            isCyclic(graph, current, visited, stack, v)
+            return False
+        else:
+            if current == parent:
+                return True
 
 
 # def cyclic(graph, vertex, Isvisited, parent):
@@ -175,4 +214,34 @@ def cycle_detect(graph):
 
 #     return False
 
+'''
+
+# def iscycle(graph, startVertex):
+#     result = False
+#     visited = []
+#     stack = []
+#     currentVertex = startVertex
+#     prev = None
+#     for v in graph[currentVertex]:
+#         stack.insert(0, v)
+#     visited.append(currentVertex)
+
+#     while len(stack) != 0:
+#         prev = currentVertex
+#         currentVertex = stack.pop()
+#         if currentVertex not in visited:
+#             visited.append(currentVertex)
+#             for i in graph[currentVertex]:
+#                 if i != prev:
+#                     stack.insert(0, i)
+#         elif currentVertex in visited:
+#             if currentVertex == prev:
+#                 pass
+#             else: 
+#                 result = True
+#                 break
+
+    
+#     return result
+        
 
