@@ -1,3 +1,8 @@
+from ast import Starred
+from locale import currency
+from pydoc import visiblename
+
+
 class TwoStack:
     
     # variables shared by all two stacks
@@ -89,6 +94,8 @@ def BFS(graph, start):
                 discovered.append(vertex)
     return discovered
 
+
+
 def DFS(graph,startnode):
     vistedverticies = []
     stack = TwoStack(len(graph),100)
@@ -97,7 +104,6 @@ def DFS(graph,startnode):
     while (not stack.isEmpty1()):
         
         currentvertex = stack.Pop1()
-         
         if (not currentvertex in vistedverticies):
             vistedverticies.append(currentvertex)
             for vertex in graph[currentvertex]:
@@ -107,7 +113,66 @@ def DFS(graph,startnode):
 
     
 
-def cycle_detect():
-    pass
+
+class Vertex:
+    def __init__(self):
+        self.adj = []
+    
+    def addAdj(self, vertex):
+        self.adj.append(vertex)
+
+def isCyclic(vertex, visited, parent):
+    visited = {}
+    visited[vertex] = True
+
+    for adj in vertex.adj:
+        if visited[adj] != True:
+            if isCyclic(adj, visited, vertex):
+                return True
+        elif adj != parent:
+            return True
+    
+    return False
+
+
+def cycle_detect(graph):
+    visited = [False] * len(graph)
+    G = []
+    for v in graph:
+        Ve = Vertex()
+        for i in v:
+            Ve.addAdj(i)
+        G.append(Ve)
+
+    for v in G:
+        if isCyclic(v, visited, None):
+            return True
+    
+    return False
+
+
+# def cyclic(graph, vertex, Isvisited, parent):
+#     Isvisited[vertex] = True
+
+#     for i in graph[vertex]:
+#         if Isvisited[i] == False:
+#             if cyclic(graph, i, Isvisited, vertex):
+#                 return True
+#         elif parent != i:
+#             return False
+    
+#     return False
+
+# def cycle_detect(graph):
+#     visited = {}
+#     for v in graph:
+#         visited[v] = False
+
+#     for v in graph:
+#         if visited[v] == False:
+#             if cyclic(graph, v, visited, -1) == True:
+#                 return True
+
+#     return False
 
 
