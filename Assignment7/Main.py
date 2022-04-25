@@ -11,10 +11,18 @@ G = {"P":["Q","R"], "Q":["P","R"], "R":["P","Q"]}
 # Task 4
 G2 = {"A":["C", "B"], "B":["A", "D", "E"], "C":["A", "F"], "D":["B"], "E": ["B", "F"], "F": ["C", "E"]}
 G3 = {"a":["b", "c"], "b":["a","e"], "c":["a",'d'], 'd':['c'], 'e': ['b','a']}
-#discoveredNodes = BFS(G2, "D")
-#print(discoveredNodes)
 
-#print(DFS(test2,5))
+
+# Testing our Code
+
+# BFS
+discoveredNodes = BFS(G2, "D")
+print(discoveredNodes)
+
+# DFS
+print(DFS(test2,5))
+
+# Cycle Dection
 print(cycle_detect(task_graph))
 print(cycle_detect(test2))
 print(cycle_detect(test4))
